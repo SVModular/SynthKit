@@ -25,3 +25,11 @@ struct AndWidget : ModuleWidget {
 struct OrWidget : ModuleWidget {
 	OrWidget();
 };
+
+struct DevKitWidget : ModuleWidget {
+	DevKitWidget();
+};
+
+struct M1x8Widget : ModuleWidget {
+	M1x8Widget();
+};
