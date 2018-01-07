@@ -26,3 +26,12 @@ Takes two inputs, calculates a logical AND, and outputs the result.
 #### Or
 
 Takes two inputs, calculates a logical OR, and outputs the result.
+
+#### 18x Splitter
+
+Takes an input, outputs the same input across 8 outputs.
+
+#### DevKit
+
+Development kit (still under development).  Currently displays minimum and
+maximum values, more coming soon.
