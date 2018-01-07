@@ -1,5 +1,3 @@
-#include <limits>
-
 #include "SynthKit.hpp"
 
 
@@ -34,29 +32,15 @@ struct AdditionModule : Module {
 
 
 void AdditionModule::step() {
-	float max = std::numeric_limits<float>::max(), min = std::numeric_limits<float>::min();
 	float top1 = inputs[TOP1_INPUT].value;
 	float top2 = inputs[TOP2_INPUT].value;
 	float bottom1 = inputs[BOTTOM1_INPUT].value;
 	float bottom2 = inputs[BOTTOM2_INPUT].value;
 
-	double val1 = top1 + top2;
-	double val2 = bottom1 + bottom2;
-
-	if (val1 > max) {
-		val1 = max;
-	} else if (val1 < min) {
-		val1 = min;
-	}
-
-	if (val2 > max) {
-		val2 = max;
-	} else if (val2 < min) {
-		val2 = min;
-	}
-
-	outputs[TOP_OUTPUT].value = (float) val1;
-	outputs[BOTTOM_OUTPUT].value = (float) val2;
+	float val1 = top1 + top2;
+	float val2 = bottom1 + bottom2;
+	outputs[TOP_OUTPUT].value = val1;
+	outputs[BOTTOM_OUTPUT].value = val2;
 }
 
 
