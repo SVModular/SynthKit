@@ -36,6 +36,22 @@ Takes an input, outputs the same input across 8 outputs.
 Takes an input, outputs the same input across any of the outputs, if the CV
 trigger is active.  LED will light up for every active output.
 
+#### Clock Divider
+
+Takes a clock input, outputs a 1/2 width pulse across 16 pulses:
+
+```
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16
+/1  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+/2     x     x     x     x     x     x     x     x
+/3        x        x        x        x        x
+/4           x           x           x           x
+/5              x              x              x
+/6                 x                 x
+/7                    x                    x
+/8                       x                        x
+```
+
 #### DevKit
 
 Development kit (still under development).  Currently displays minimum and

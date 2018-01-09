@@ -18,6 +18,12 @@ uint8_t test_trigger_update ( ) {
   check(cv->triggerInterval() == 2, "trigger interval is correct");
   check(cv->triggerTotal() == 1, "trigger total is correct");
 
+  cv->update(2.5);
+  check(cv->newTrigger() == false, "not a new trigger while still high");
+  check(cv->currentValue() == 2.5f, "current value is correct");
+  check(cv->triggerInterval() == 2, "trigger interval is correct");
+  check(cv->triggerTotal() == 1, "trigger total is correct");
+
   cv->update(-1);
   check(cv->newTrigger() == false, "trigger is correct after going low");
   check(cv->currentValue() == -1, "current value is correct");

@@ -26,6 +26,7 @@ struct DevKitModule : Module {
 		count = 0;
 		cvcount = new TextField();
 		cv = new CVKit(1.5f);
+		interval = new TextField();
 	}
 
 	void step() override;
@@ -35,6 +36,7 @@ struct DevKitModule : Module {
 	int count;
 	TextField *cvcount;
 	CVKit *cv;
+	TextField *interval;
 };
 
 
@@ -67,6 +69,9 @@ void DevKitModule::step() {
 		char buf3[25];
 	  sprintf(buf3, "%d", count);
 		cvcount->text = buf3;
+
+		sprintf(buf3, "%d", cv->triggerInterval());
+		interval->text = buf3;
 	}
 }
 
@@ -106,6 +111,12 @@ DevKitWidget::DevKitWidget() {
 	module->cvcount->text = "count";
 
 	addChild(module->cvcount);
+
+	module->interval->box.size = Vec(60, 20);
+	module->interval->box.pos = Vec(14, 208);
+	module->interval->text = "interval";
+
+	addChild(module->interval);
 
 	addInput(createInput<PJ301MPort>(Vec(33, 49), module, DevKitModule::DEV_INPUT));
 }

@@ -37,3 +37,7 @@ struct M1x8Widget : ModuleWidget {
 struct M1x8CVWidget : ModuleWidget {
 	M1x8CVWidget();
 };
+
+struct ClockDividerWidget : ModuleWidget {
+	ClockDividerWidget();
+};
