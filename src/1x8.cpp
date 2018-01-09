@@ -62,9 +62,7 @@ M1x8Widget::M1x8Widget() {
 
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
 	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-
+	
 	addInput(createInput<PJ301MPort>(Vec(10, 34), module, M1x8Module::TOP_INPUT));
 	addOutput(createOutput<PJ301MPort>(Vec(10, 70), module, M1x8Module::FIRST_OUTPUT));
 	addOutput(createOutput<PJ301MPort>(Vec(10, 96), module, M1x8Module::SECOND_OUTPUT));

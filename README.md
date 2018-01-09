@@ -27,11 +27,16 @@ Takes two inputs, calculates a logical AND, and outputs the result.
 
 Takes two inputs, calculates a logical OR, and outputs the result.
 
-#### 18x Splitter
+#### 1x8 Splitter
 
 Takes an input, outputs the same input across 8 outputs.
+
+#### 1x8 Splitter, CV Controlled
+
+Takes an input, outputs the same input across any of the outputs, if the CV
+trigger is active.  LED will light up for every active output.
 
 #### DevKit
 
 Development kit (still under development).  Currently displays minimum and
-maximum values, more coming soon.
+maximum values, CV trigger status (1.5v), number of triggers.

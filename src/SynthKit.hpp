@@ -33,3 +33,7 @@ struct DevKitWidget : ModuleWidget {
 struct M1x8Widget : ModuleWidget {
 	M1x8Widget();
 };
+
+struct M1x8CVWidget : ModuleWidget {
+	M1x8CVWidget();
+};

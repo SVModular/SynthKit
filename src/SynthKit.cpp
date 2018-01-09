@@ -20,6 +20,7 @@ void init(rack::Plugin *p) {
 	p->addModel(createModel<AndWidget>("SynthKit", "And", "And", MIXER_TAG));
 	p->addModel(createModel<OrWidget>("SynthKit", "Or", "Or", MIXER_TAG));
 	p->addModel(createModel<M1x8Widget>("SynthKit", "1x8 Splitter", "1x8 Splitter", MIXER_TAG));
+	p->addModel(createModel<M1x8CVWidget>("SynthKit", "1x8 Splitter (CV)", "1x8 Splitter (CV)", MIXER_TAG));
 	p->addModel(createModel<DevKitWidget>("SynthKit", "DevKit", "DevKit", MIXER_TAG));
 
 	// Any other plugin initialization may go here.
