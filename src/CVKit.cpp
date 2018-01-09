@@ -44,6 +44,14 @@ void CVKit::update (float current) {
   }
 }
 
+bool CVKit::isHigh ( ) {
+  return this->triggered;
+}
+
+bool CVKit::isLow ( ) {
+  return !this->triggered;
+}
+
 void CVKit::reset ( ) {
   this->triggered = false;
   this->lastTriggered = false;

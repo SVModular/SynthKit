@@ -3,3 +3,6 @@ plugin.dylib
 src/*.o
 src/*.d
 build
+dist
+tests/*.o
+testrunner

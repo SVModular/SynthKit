@@ -11,6 +11,8 @@ class CVKit {
     float currentValue ( );
     uint32_t triggerInterval ( );
     uint32_t triggerTotal ( );
+    bool isHigh ( );
+    bool isLow ( );
   private:
     float threshold;
     bool triggered;
