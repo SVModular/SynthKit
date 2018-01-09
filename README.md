@@ -49,7 +49,7 @@ Takes a clock input, outputs a 1/2 width pulse across 16 pulses:
 /5              x              x              x
 /6                 x                 x
 /7                    x                    x
-/8                       x                        x
+/8                       x                       x
 ```
 
 #### DevKit
