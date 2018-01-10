@@ -9,10 +9,7 @@ CXXFLAGS +=
 LDFLAGS +=
 
 # Add .cpp and .c files to the build
-SOURCES = $(wildcard src/*.cpp)
-
-TEST_SOURCES = $(wildcard tests/*.cpp) src/CVKit.cpp
-TEST_OBJS = $(subst .cpp,.o,$(TEST_SOURCES))
+SOURCES = $(wildcard src/*.cpp) $(wildcard deps/SynthDevKit/src/*.cpp)
 
 # Must include the VCV plugin Makefile framework
 include ../../plugin.mk
@@ -21,9 +18,6 @@ include ../../plugin.mk
 # Convenience target for including files in the distributable release
 DIST_NAME = SynthKit
 VERSION = 0.5.1
-
-test: all $(TEST_OBJS)
-	$(CXX) $(TEST_OBJS) -o testrunner
 
 .PHONY: dist
 dist: all

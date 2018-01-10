@@ -1,5 +1,5 @@
 #include "SynthKit.hpp"
-#include "CVKit.hpp"
+#include "../deps/SynthDevKit/src/CV.hpp"
 
 struct M1x8CVModule : Module {
 	enum ParamIds {
@@ -42,12 +42,12 @@ struct M1x8CVModule : Module {
 
 	M1x8CVModule() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
 		for (int i = 0; i < 8; i++) {
-			cv[i] = new CVKit(1.5f);
+			cv[i] = new SynthDevKit::CV(1.5f);
 		}
 	}
 	void step() override;
 
-	CVKit *cv[8];
+	SynthDevKit::CV *cv[8];
 };
 
 

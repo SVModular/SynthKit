@@ -56,3 +56,16 @@ Takes a clock input, outputs a 1/2 width pulse across 16 pulses:
 
 Development kit (still under development).  Currently displays minimum and
 maximum values, CV trigger status (1.5v), number of triggers.
+
+## Building
+
+Building requires [SynthDevKit](https://github.com/JerrySievert/SynthDevKit),
+which will be checked out as part of the build initialization.
+
+```
+$ git clone https://github.com/JerrySievert/SynthKit
+$ cd SynthKit
+$ git submodule init
+$ git submodule update
+$ make
+```

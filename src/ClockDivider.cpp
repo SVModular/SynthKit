@@ -1,7 +1,7 @@
 #include <stdint.h>
 
 #include "SynthKit.hpp"
-#include "CVKit.hpp"
+#include "../deps/SynthDevKit/src/Clock.hpp"
 
 struct ClockDividerModule : Module {
 	enum ParamIds {
@@ -35,225 +35,28 @@ struct ClockDividerModule : Module {
 	};
 
 	ClockDividerModule() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
-    cv = new CVKit(1.5);
-
-    count = 0;
-    ready = false;
-    where = 0;
+    clock = new SynthDevKit::Clock(8, 1.5);
   }
 
 	void step() override;
 
-  CVKit *cv;
-  int count;
-  bool ready;
-  uint64_t where;
+  SynthDevKit::Clock *clock;
 };
 
 
 void ClockDividerModule::step() {
 	float in = inputs[TOP_INPUT].value;
-  this->cv->update(in);
+  bool *states = clock->update(in);
 
-  // check to see if the module has been init, if not, figure out the first
-  // length of the triggers.  by the time the second trigger occurs, there
-  // should be an interval figured out
-  if (!this->ready) {
-    if (this->cv->newTrigger()) {
-      this->ready = true;
-    }
-
-    return;
-  }
-
-  // increment the current position
-  this->where++;
-
-  // if this is a trigger event, figure out which to turn on, and do it
-  if (this->cv->newTrigger()) {
-    // increment the trigger count
-    this->count++;
-
-    this->where = 0;
-
-    switch (this->count) {
-    case 1:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0;
-
-      break;
-
-    case 2:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0;
-      outputs[SECOND_OUTPUT].value = in;
-      lights[SECOND_LED].value = 1.0f;
-
-      break;
-
-    case 3:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[THIRD_OUTPUT].value = in;
-      lights[THIRD_LED].value = 1.0f;
-
-      break;
-
-    case 4:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[SECOND_OUTPUT].value = in;
-      lights[SECOND_LED].value = 1.0f;
-      outputs[FOURTH_OUTPUT].value = in;
-      lights[FOURTH_LED].value = 1.0f;
-
-      break;
-
-    case 5:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[FIFTH_OUTPUT].value = in;
-      lights[FIFTH_LED].value = 1.0f;
-
-      break;
-
-    case 6:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[SECOND_OUTPUT].value = in;
-      lights[SECOND_LED].value = 1.0f;
-      outputs[THIRD_OUTPUT].value = in;
-      lights[THIRD_LED].value = 1.0f;
-      outputs[SIXTH_OUTPUT].value = in;
-      lights[SIXTH_LED].value = 1.0f;
-
-      break;
-
-    case 7:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[SEVENTH_OUTPUT].value = in;
-      lights[SEVENTH_LED].value = 1.0f;
-
-      break;
-
-    case 8:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[SECOND_OUTPUT].value = in;
-      lights[SECOND_LED].value = 1.0f;
-      outputs[FOURTH_OUTPUT].value = in;
-      lights[FOURTH_LED].value = 1.0f;
-      outputs[EIGHTH_OUTPUT].value = in;
-      lights[EIGHTH_LED].value = 1.0f;
-
-      break;
-
-    case 9:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[THIRD_OUTPUT].value = in;
-      lights[THIRD_LED].value = 1.0f;
-
-      break;
-
-    case 10:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[SECOND_OUTPUT].value = in;
-      lights[SECOND_LED].value = 1.0f;
-      outputs[FIFTH_OUTPUT].value = in;
-      lights[FIFTH_LED].value = 1.0f;
-
-      break;
-
-    case 11:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-
-      break;
-
-    case 12:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[SECOND_OUTPUT].value = in;
-      lights[SECOND_LED].value = 1.0f;
-      outputs[THIRD_OUTPUT].value = in;
-      lights[THIRD_LED].value = 1.0f;
-      outputs[FOURTH_OUTPUT].value = in;
-      lights[FOURTH_LED].value = 1.0f;
-      outputs[SIXTH_OUTPUT].value = in;
-      lights[SIXTH_LED].value = 1.0f;
-
-      break;
-
-    case 13:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-
-      break;
-
-    case 14:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[SECOND_OUTPUT].value = in;
-      lights[SECOND_LED].value = 1.0f;
-      outputs[SEVENTH_OUTPUT].value = in;
-      lights[SEVENTH_LED].value = 1.0f;
-
-      break;
-
-    case 15:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[THIRD_OUTPUT].value = in;
-      lights[THIRD_LED].value = 1.0f;
-      outputs[FIFTH_OUTPUT].value = in;
-      lights[FIFTH_LED].value = 1.0f;
-
-      break;
-
-    case 16:
-      outputs[FIRST_OUTPUT].value = in;
-      lights[FIRST_LED].value = 1.0f;
-      outputs[SECOND_OUTPUT].value = in;
-      lights[SECOND_LED].value = 1.0f;
-      outputs[FOURTH_OUTPUT].value = in;
-      lights[FOURTH_LED].value = 1.0f;
-      outputs[EIGHTH_OUTPUT].value = in;
-      lights[EIGHTH_LED].value = 1.0f;
-
-      break;
-    }
-  } else {
-    // check to see if this is an interval / 2
-    if (this->where >= cv->triggerInterval() / 2) {
-      // turn everything off
-      outputs[FIRST_OUTPUT].value = 0;
-      lights[FIRST_LED].value = 0;
-      outputs[SECOND_OUTPUT].value = 0;
-      lights[SECOND_LED].value = 0;
-      outputs[THIRD_OUTPUT].value = 0;
-      lights[THIRD_LED].value = 0;
-      outputs[FOURTH_OUTPUT].value = 0;
-      lights[FOURTH_LED].value = 0;
-      outputs[FIFTH_OUTPUT].value = 0;
-      lights[FIFTH_LED].value = 0;
-      outputs[SIXTH_OUTPUT].value = 0;
-      lights[SIXTH_LED].value = 0;
-      outputs[SEVENTH_OUTPUT].value = 0;
-      lights[SEVENTH_LED].value = 0;
-      outputs[EIGHTH_OUTPUT].value = 0;
-      lights[EIGHTH_LED].value = 0;
-
-      this->where = 0;
-    }
-  }
-
-  // check to see if this is the end of a loop
-  if (this->count == 16) {
-    this->count = 0;
-  }
+	for (int i = 0; i < 8; i++) {
+		if (states[i] == true) {
+			outputs[i].value = in;
+			lights[i].value = 1.0f;
+		} else {
+			outputs[i].value = 0;
+			lights[i].value = 0;
+		}
+	}
 }
 
 
