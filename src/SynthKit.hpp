@@ -41,3 +41,7 @@ struct M1x8CVWidget : ModuleWidget {
 struct ClockDividerWidget : ModuleWidget {
 	ClockDividerWidget();
 };
+
+struct Seq4Widget : ModuleWidget {
+	Seq4Widget();
+};
