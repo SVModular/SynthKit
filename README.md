@@ -52,6 +52,11 @@ Takes a clock input, outputs a 1/2 width pulse across 16 pulses:
 /8                       x                       x
 ```
 
+#### Simple 4-Step Sequencer
+
+Takes a clock input, and outputs a simple 4-step sequence across one octave,
+selectable.
+
 #### DevKit
 
 Development kit (still under development).  Currently displays minimum and
