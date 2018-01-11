@@ -146,37 +146,37 @@ M1x8CVWidget::M1x8CVWidget() {
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	addInput(createInput<PJ301MPort>(Vec(34, 34), module, M1x8CVModule::TOP_INPUT));
+	addInput(createInput<PJ301MPort>(Vec(33, 34), module, M1x8CVModule::TOP_INPUT));
 
-	addInput(createInput<PJ301MPort>(Vec(13, 70), module, M1x8CVModule::FIRST_CV));
-	addOutput(createOutput<PJ301MPort>(Vec(53, 70), module, M1x8CVModule::FIRST_OUTPUT));
-	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 78), module, M1x8CVModule::FIRST_LED));
+	addInput(createInput<PJ301MPort>(Vec(13, 73), module, M1x8CVModule::FIRST_CV));
+	addOutput(createOutput<PJ301MPort>(Vec(53, 73), module, M1x8CVModule::FIRST_OUTPUT));
+	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 81), module, M1x8CVModule::FIRST_LED));
 
-	addInput(createInput<PJ301MPort>(Vec(13, 96), module, M1x8CVModule::SECOND_CV));
-	addOutput(createOutput<PJ301MPort>(Vec(53, 96), module, M1x8CVModule::SECOND_OUTPUT));
-	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 104), module, M1x8CVModule::SECOND_LED));
+	addInput(createInput<PJ301MPort>(Vec(13, 108), module, M1x8CVModule::SECOND_CV));
+	addOutput(createOutput<PJ301MPort>(Vec(53, 108), module, M1x8CVModule::SECOND_OUTPUT));
+	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 116), module, M1x8CVModule::SECOND_LED));
 
-	addInput(createInput<PJ301MPort>(Vec(13, 122), module, M1x8CVModule::THIRD_CV));
-	addOutput(createOutput<PJ301MPort>(Vec(53, 122), module, M1x8CVModule::THIRD_OUTPUT));
-	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 130), module, M1x8CVModule::THIRD_LED));
+	addInput(createInput<PJ301MPort>(Vec(13, 143), module, M1x8CVModule::THIRD_CV));
+	addOutput(createOutput<PJ301MPort>(Vec(53, 143), module, M1x8CVModule::THIRD_OUTPUT));
+	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 151), module, M1x8CVModule::THIRD_LED));
 
-	addInput(createInput<PJ301MPort>(Vec(13, 148), module, M1x8CVModule::FOURTH_CV));
-	addOutput(createOutput<PJ301MPort>(Vec(53, 148), module, M1x8CVModule::FOURTH_OUTPUT));
-	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 156), module, M1x8CVModule::FOURTH_LED));
+	addInput(createInput<PJ301MPort>(Vec(13, 178), module, M1x8CVModule::FOURTH_CV));
+	addOutput(createOutput<PJ301MPort>(Vec(53, 178), module, M1x8CVModule::FOURTH_OUTPUT));
+	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 186), module, M1x8CVModule::FOURTH_LED));
 
-	addInput(createInput<PJ301MPort>(Vec(13, 174), module, M1x8CVModule::FIFTH_CV));
-	addOutput(createOutput<PJ301MPort>(Vec(53, 174), module, M1x8CVModule::FIFTH_OUTPUT));
-	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 182), module, M1x8CVModule::FIFTH_LED));
+	addInput(createInput<PJ301MPort>(Vec(13, 213), module, M1x8CVModule::FIFTH_CV));
+	addOutput(createOutput<PJ301MPort>(Vec(53, 213), module, M1x8CVModule::FIFTH_OUTPUT));
+	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 221), module, M1x8CVModule::FIFTH_LED));
 
-	addInput(createInput<PJ301MPort>(Vec(13, 200), module, M1x8CVModule::SIXTH_CV));
-	addOutput(createOutput<PJ301MPort>(Vec(53, 200), module, M1x8CVModule::SIXTH_OUTPUT));
-	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 208), module, M1x8CVModule::SIXTH_LED));
+	addInput(createInput<PJ301MPort>(Vec(13, 248), module, M1x8CVModule::SIXTH_CV));
+	addOutput(createOutput<PJ301MPort>(Vec(53, 248), module, M1x8CVModule::SIXTH_OUTPUT));
+	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 256), module, M1x8CVModule::SIXTH_LED));
 
-	addInput(createInput<PJ301MPort>(Vec(13, 226), module, M1x8CVModule::SEVENTH_CV));
-	addOutput(createOutput<PJ301MPort>(Vec(53, 226), module, M1x8CVModule::SEVENTH_OUTPUT));
-	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 234), module, M1x8CVModule::SEVENTH_LED));
+	addInput(createInput<PJ301MPort>(Vec(13, 283), module, M1x8CVModule::SEVENTH_CV));
+	addOutput(createOutput<PJ301MPort>(Vec(53, 283), module, M1x8CVModule::SEVENTH_OUTPUT));
+	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 291), module, M1x8CVModule::SEVENTH_LED));
 
-	addInput(createInput<PJ301MPort>(Vec(13, 252), module, M1x8CVModule::EIGHTH_CV));
-	addOutput(createOutput<PJ301MPort>(Vec(53, 252), module, M1x8CVModule::EIGHTH_OUTPUT));
-	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 260), module, M1x8CVModule::EIGHTH_LED));
+	addInput(createInput<PJ301MPort>(Vec(13, 318), module, M1x8CVModule::EIGHTH_CV));
+	addOutput(createOutput<PJ301MPort>(Vec(53, 318), module, M1x8CVModule::EIGHTH_OUTPUT));
+	addChild(createLight<MediumLight<GreenLight>>(Vec(41, 326), module, M1x8CVModule::EIGHTH_LED));
 }

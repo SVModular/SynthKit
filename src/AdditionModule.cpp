@@ -47,7 +47,7 @@ void AdditionModule::step() {
 AdditionWidget::AdditionWidget() {
 	AdditionModule *module = new AdditionModule();
 	setModule(module);
-	box.size = Vec(6 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
+	box.size = Vec(3 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
 		SVGPanel *panel = new SVGPanel();
@@ -57,19 +57,15 @@ AdditionWidget::AdditionWidget() {
 	}
 
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	//addParam(createParam<Davies1900hBlackKnob>(Vec(28, 87), module, MyModule::PITCH_PARAM, -3.0, 3.0, 0.0));
+	addInput(createInput<PJ301MPort>(Vec(10, 45), module, AdditionModule::TOP1_INPUT));
+	addInput(createInput<PJ301MPort>(Vec(10, 94), module, AdditionModule::TOP2_INPUT));
 
-	addInput(createInput<PJ301MPort>(Vec(33, 49), module, AdditionModule::TOP1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(33, 95), module, AdditionModule::TOP2_INPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 143), module, AdditionModule::TOP_OUTPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(33, 141), module, AdditionModule::TOP_OUTPUT));
+	addInput(createInput<PJ301MPort>(Vec(10, 203), module, AdditionModule::BOTTOM1_INPUT));
+	addInput(createInput<PJ301MPort>(Vec(10, 252), module, AdditionModule::BOTTOM2_INPUT));
 
-	addInput(createInput<PJ301MPort>(Vec(33, 203), module, AdditionModule::BOTTOM1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(33, 249), module, AdditionModule::BOTTOM2_INPUT));
-
-	addOutput(createOutput<PJ301MPort>(Vec(33, 295), module, AdditionModule::BOTTOM_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 301), module, AdditionModule::BOTTOM_OUTPUT));
 }

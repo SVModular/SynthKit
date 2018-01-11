@@ -48,7 +48,7 @@ void OrModule::step() {
 OrWidget::OrWidget() {
 	OrModule *module = new OrModule();
 	setModule(module);
-	box.size = Vec(6 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
+	box.size = Vec(3 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
 		SVGPanel *panel = new SVGPanel();
@@ -58,19 +58,15 @@ OrWidget::OrWidget() {
 	}
 
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	//addParam(createParam<Davies1900hBlackKnob>(Vec(28, 87), module, MyModule::PITCH_PARAM, -3.0, 3.0, 0.0));
+	addInput(createInput<PJ301MPort>(Vec(10, 45), module, OrModule::TOP1_INPUT));
+	addInput(createInput<PJ301MPort>(Vec(10, 94), module, OrModule::TOP2_INPUT));
 
-	addInput(createInput<PJ301MPort>(Vec(33, 49), module, OrModule::TOP1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(33, 95), module, OrModule::TOP2_INPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 143), module, OrModule::TOP_OUTPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(33, 141), module, OrModule::TOP_OUTPUT));
+	addInput(createInput<PJ301MPort>(Vec(10, 203), module, OrModule::BOTTOM1_INPUT));
+	addInput(createInput<PJ301MPort>(Vec(10, 252), module, OrModule::BOTTOM2_INPUT));
 
-	addInput(createInput<PJ301MPort>(Vec(33, 203), module, OrModule::BOTTOM1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(33, 249), module, OrModule::BOTTOM2_INPUT));
-
-	addOutput(createOutput<PJ301MPort>(Vec(33, 295), module, OrModule::BOTTOM_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 301), module, OrModule::BOTTOM_OUTPUT));
 }

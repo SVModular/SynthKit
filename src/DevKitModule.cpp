@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "SynthKit.hpp"
-#include "CVKit.hpp"
+#include "../deps/SynthDevKit/src/CV.hpp"
 
 struct DevKitModule : Module {
 	enum ParamIds {
@@ -25,7 +25,7 @@ struct DevKitModule : Module {
 		maximum = new TextField();
 		count = 0;
 		cvcount = new TextField();
-		cv = new CVKit(1.5f);
+		cv = new SynthDevKit::CV(1.5f);
 		interval = new TextField();
 	}
 
@@ -35,7 +35,7 @@ struct DevKitModule : Module {
   float min, max;
 	int count;
 	TextField *cvcount;
-	CVKit *cv;
+	SynthDevKit::CV *cv;
 	TextField *interval;
 };
 
@@ -90,8 +90,8 @@ DevKitWidget::DevKitWidget() {
 
   module->minimum->box.size = Vec(60, 20);
   module->maximum->box.size = Vec(60, 20);
-  module->minimum->box.pos = Vec(14, 96);
-  module->maximum->box.pos = Vec(14, 134);
+  module->minimum->box.pos = Vec(14, 78);
+  module->maximum->box.pos = Vec(14, 126);
 
   module->minimum->text = "minimum";
   module->maximum->text = "maximum";
@@ -104,19 +104,19 @@ DevKitWidget::DevKitWidget() {
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	addChild(createLight<MediumLight<RedLight>>(Vec(13, 173), module, DevKitModule::BLINK_LIGHT));
+	addChild(createLight<MediumLight<RedLight>>(Vec(40, 173), module, DevKitModule::BLINK_LIGHT));
 
 	module->cvcount->box.size = Vec(60, 20);
-	module->cvcount->box.pos = Vec(14, 188);
+	module->cvcount->box.pos = Vec(14, 214);
 	module->cvcount->text = "count";
 
 	addChild(module->cvcount);
 
 	module->interval->box.size = Vec(60, 20);
-	module->interval->box.pos = Vec(14, 208);
+	module->interval->box.pos = Vec(14, 264);
 	module->interval->text = "interval";
 
 	addChild(module->interval);
 
-	addInput(createInput<PJ301MPort>(Vec(33, 49), module, DevKitModule::DEV_INPUT));
+	addInput(createInput<PJ301MPort>(Vec(33, 34), module, DevKitModule::DEV_INPUT));
 }

@@ -61,15 +61,15 @@ M1x8Widget::M1x8Widget() {
 	}
 
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-	
+	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+
 	addInput(createInput<PJ301MPort>(Vec(10, 34), module, M1x8Module::TOP_INPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 70), module, M1x8Module::FIRST_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 96), module, M1x8Module::SECOND_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 122), module, M1x8Module::THIRD_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 148), module, M1x8Module::FOURTH_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 174), module, M1x8Module::FIFTH_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 200), module, M1x8Module::SIXTH_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 226), module, M1x8Module::SEVENTH_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 252), module, M1x8Module::EIGHTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 73), module, M1x8Module::FIRST_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 108), module, M1x8Module::SECOND_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 143), module, M1x8Module::THIRD_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 178), module, M1x8Module::FOURTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 213), module, M1x8Module::FIFTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 248), module, M1x8Module::SIXTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 283), module, M1x8Module::SEVENTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 318), module, M1x8Module::EIGHTH_OUTPUT));
 }

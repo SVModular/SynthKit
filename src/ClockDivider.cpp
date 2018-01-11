@@ -73,24 +73,24 @@ ClockDividerWidget::ClockDividerWidget() {
 	}
 
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	addInput(createInput<PJ301MPort>(Vec(10, 33), module, ClockDividerModule::TOP_INPUT));
+	addInput(createInput<PJ301MPort>(Vec(10, 34), module, ClockDividerModule::TOP_INPUT));
 	addOutput(createOutput<PJ301MPort>(Vec(10, 73), module, ClockDividerModule::FIRST_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 107), module, ClockDividerModule::SECOND_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 140), module, ClockDividerModule::THIRD_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 173), module, ClockDividerModule::FOURTH_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 207), module, ClockDividerModule::FIFTH_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 242), module, ClockDividerModule::SIXTH_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 279), module, ClockDividerModule::SEVENTH_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(10, 314), module, ClockDividerModule::EIGHTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 108), module, ClockDividerModule::SECOND_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 143), module, ClockDividerModule::THIRD_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 178), module, ClockDividerModule::FOURTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 213), module, ClockDividerModule::FIFTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 248), module, ClockDividerModule::SIXTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 283), module, ClockDividerModule::SEVENTH_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(10, 318), module, ClockDividerModule::EIGHTH_OUTPUT));
 
   addChild(createLight<MediumLight<GreenLight>>(Vec(35, 81), module, ClockDividerModule::FIRST_LED));
-  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 115), module, ClockDividerModule::SECOND_LED));
-  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 148), module, ClockDividerModule::THIRD_LED));
-  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 181), module, ClockDividerModule::FOURTH_LED));
-  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 215), module, ClockDividerModule::FIFTH_LED));
-  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 250), module, ClockDividerModule::SIXTH_LED));
-  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 287), module, ClockDividerModule::SEVENTH_LED));
-  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 322), module, ClockDividerModule::EIGHTH_LED));
+  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 116), module, ClockDividerModule::SECOND_LED));
+  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 151), module, ClockDividerModule::THIRD_LED));
+  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 186), module, ClockDividerModule::FOURTH_LED));
+  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 221), module, ClockDividerModule::FIFTH_LED));
+  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 256), module, ClockDividerModule::SIXTH_LED));
+  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 291), module, ClockDividerModule::SEVENTH_LED));
+  addChild(createLight<MediumLight<GreenLight>>(Vec(35, 326), module, ClockDividerModule::EIGHTH_LED));
 }
