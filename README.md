@@ -52,6 +52,12 @@ Takes a clock input, outputs a 1/2 width pulse across 16 pulses:
 /8                       x                       x
 ```
 
+#### Rotating Clock Divider
+
+Works the same as the Clock Divider, except that when it is triggered, the outputs
+rotate.  For each trigger, the output sequences increment one: output 1 changes to
+output 2, etc.
+
 #### Simple 4-Step Sequencer
 
 Takes a clock input, and outputs a simple 4-step sequence across one octave,

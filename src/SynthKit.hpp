@@ -45,3 +45,7 @@ struct ClockDividerWidget : ModuleWidget {
 struct Seq4Widget : ModuleWidget {
 	Seq4Widget();
 };
+
+struct RotatingClockDividerWidget : ModuleWidget {
+	RotatingClockDividerWidget();
+};

@@ -1,3 +1,5 @@
+DIST_NAME = SynthKit
+VERSION = 0.5.2
 
 # FLAGS will be passed to both the C and C++ compiler
 FLAGS +=
@@ -11,13 +13,14 @@ LDFLAGS +=
 # Add .cpp and .c files to the build
 SOURCES = $(wildcard src/*.cpp) $(wildcard deps/SynthDevKit/src/*.cpp)
 
+TEST_SOURCES = $(wildcard tests/*.cpp) src/CVKit.cpp
+TEST_OBJS = $(subst .cpp,.o,$(TEST_SOURCES))
+
 # Must include the VCV plugin Makefile framework
 include ../../plugin.mk
 
 
 # Convenience target for including files in the distributable release
-DIST_NAME = SynthKit
-VERSION = 0.5.1
 
 .PHONY: dist
 dist: all
