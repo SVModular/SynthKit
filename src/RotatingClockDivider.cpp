@@ -38,8 +38,8 @@ struct RotatingClockDividerModule : Module {
 	};
 
 	RotatingClockDividerModule() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
-    clock = new SynthDevKit::Clock(8, 1.5);
-		cv = new SynthDevKit::CV(1.5);
+    clock = new SynthDevKit::Clock(8, 1.7f);
+		cv = new SynthDevKit::CV(1.7f);
 		count = 0;
   }
 

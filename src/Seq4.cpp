@@ -30,7 +30,7 @@ struct Seq4Module : Module {
 	};
 
 	Seq4Module() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
-    cv = new SynthDevKit::CV(1.5f);
+    cv = new SynthDevKit::CV(1.7f);
     currentStep = 0;
   }
 

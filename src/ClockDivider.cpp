@@ -35,7 +35,7 @@ struct ClockDividerModule : Module {
 	};
 
 	ClockDividerModule() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
-    clock = new SynthDevKit::Clock(8, 1.5);
+    clock = new SynthDevKit::Clock(8, 1.7f);
   }
 
 	void step() override;

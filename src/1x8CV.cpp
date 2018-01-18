@@ -42,7 +42,7 @@ struct M1x8CVModule : Module {
 
 	M1x8CVModule() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
 		for (int i = 0; i < 8; i++) {
-			cv[i] = new SynthDevKit::CV(1.5f);
+			cv[i] = new SynthDevKit::CV(1.7f);
 		}
 	}
 	void step() override;
