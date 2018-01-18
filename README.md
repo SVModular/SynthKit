@@ -66,7 +66,7 @@ selectable.
 #### DevKit
 
 Development kit (still under development).  Currently displays minimum and
-maximum values, CV trigger status (1.5v), number of triggers.
+maximum values, CV trigger status (1.7v), number of triggers.
 
 ## Building
 
