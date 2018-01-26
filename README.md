@@ -58,6 +58,22 @@ Works the same as the Clock Divider, except that when it is triggered, the outpu
 rotate.  For each trigger, the output sequences increment one: output 1 changes to
 output 2, etc.
 
+#### Prime Clock Divider
+
+Works the same as the Clock Divider, but only triggers on prime numbered pulses:
+
+```
+     1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19
+/2      x
+/3         x
+/5                x
+/7                     x
+/11                                 x
+/13                                       x
+/17                                                   x
+/19                                                         x
+```
+
 #### Simple 4-Step Sequencer
 
 Takes a clock input, and outputs a simple 4-step sequence across one octave,

@@ -42,6 +42,10 @@ struct ClockDividerWidget : ModuleWidget {
 	ClockDividerWidget();
 };
 
+struct PrimeClockDividerWidget : ModuleWidget {
+	PrimeClockDividerWidget();
+};
+
 struct Seq4Widget : ModuleWidget {
 	Seq4Widget();
 };

@@ -23,6 +23,7 @@ void init(rack::Plugin *p) {
 	p->addModel(createModel<M1x8CVWidget>("SynthKit", "1x8 Splitter (CV)", "1x8 Splitter (CV)", MIXER_TAG));
 	p->addModel(createModel<ClockDividerWidget>("SynthKit", "Clock Divider", "Clock Divider", UTILITY_TAG, CLOCK_TAG));
 	p->addModel(createModel<RotatingClockDividerWidget>("SynthKit", "Rotating Clock Divider", "Rotating Clock Divider", UTILITY_TAG, CLOCK_TAG));
+	p->addModel(createModel<PrimeClockDividerWidget>("SynthKit", "Prime Clock Divider", "Prime Clock Divider", UTILITY_TAG, CLOCK_TAG));
 	p->addModel(createModel<Seq4Widget>("SynthKit", "4-Step Sequencer", "4-Step Sequencer", SEQUENCER_TAG));
 	p->addModel(createModel<Seq8Widget>("SynthKit", "8-Step Sequencer", "8-Step Sequencer", SEQUENCER_TAG));
 	p->addModel(createModel<DevKitWidget>("SynthKit", "DevKit", "DevKit", UTILITY_TAG));
