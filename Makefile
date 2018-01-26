@@ -1,5 +1,5 @@
-DIST_NAME = SynthKit
-VERSION = 0.5.3
+SLUG = SynthKit
+VERSION = 0.5.4
 
 # FLAGS will be passed to both the C and C++ compiler
 FLAGS +=
@@ -13,22 +13,9 @@ LDFLAGS +=
 # Add .cpp and .c files to the build
 SOURCES = $(wildcard src/*.cpp) $(wildcard deps/SynthDevKit/src/*.cpp)
 
-TEST_SOURCES = $(wildcard tests/*.cpp) src/CVKit.cpp
-TEST_OBJS = $(subst .cpp,.o,$(TEST_SOURCES))
+# Add files to the ZIP package when running `make dist`
+# The compiled plugin is automatically added.
+DISTRIBUTABLES += $(wildcard LICENSE*) res
 
 # Must include the VCV plugin Makefile framework
 include ../../plugin.mk
-
-
-# Convenience target for including files in the distributable release
-
-.PHONY: dist
-dist: all
-ifndef VERSION
-	$(error VERSION must be defined when making distributables)
-endif
-	mkdir -p dist/$(DIST_NAME)
-	cp LICENSE* dist/$(DIST_NAME)/
-	cp $(TARGET) dist/$(DIST_NAME)/
-	cp -R res dist/$(DIST_NAME)/
-	cd dist && zip -5 -r $(DIST_NAME)-$(VERSION)-$(ARCH).zip $(DIST_NAME)

@@ -35,3 +35,15 @@ struct SKRoundSmallWhiteSnapKnob : SKRoundSmallWhiteKnob {
     snap = true;
   }
 };
+
+struct SKRoundTinyWhiteKnob : SKRoundWhiteKnob {
+  SKRoundTinyWhiteKnob ( ) {
+    box.size = Vec(18, 18);
+  }
+};
+
+struct SKRoundTinyWhiteSnapKnob : SKRoundTinyWhiteKnob {
+  SKRoundTinyWhiteSnapKnob ( ) {
+    snap = true;
+  }
+};
