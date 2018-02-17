@@ -74,6 +74,10 @@ Works the same as the Clock Divider, but only triggers on prime numbered pulses:
 /19                                                         x
 ```
 
+#### Fibonacci Clock Divider
+
+Works the same as the Prime Clock Divider, but only triggers on fibonacci numbered pulses.
+
 #### Simple 4-Step Sequencer
 
 Takes a clock input, and outputs a simple 4-step sequence across one octave,
