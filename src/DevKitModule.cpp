@@ -75,10 +75,11 @@ void DevKitModule::step() {
 	}
 }
 
+struct DevKitWidget : ModuleWidget {
+	DevKitWidget(DevKitModule *module);
+};
 
-DevKitWidget::DevKitWidget() {
-	DevKitModule *module = new DevKitModule();
-	setModule(module);
+DevKitWidget::DevKitWidget(DevKitModule *module) : ModuleWidget(module) {
 	box.size = Vec(6 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
@@ -99,12 +100,12 @@ DevKitWidget::DevKitWidget() {
   addChild(module->minimum);
   addChild(module->maximum);
 
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
+	addChild(Widget::create<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+	addChild(Widget::create<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	addChild(createLight<MediumLight<RedLight>>(Vec(40, 173), module, DevKitModule::BLINK_LIGHT));
+	addChild(ModuleLightWidget::create<MediumLight<RedLight>>(Vec(40, 173), module, DevKitModule::BLINK_LIGHT));
 
 	module->cvcount->box.size = Vec(60, 20);
 	module->cvcount->box.pos = Vec(14, 214);
@@ -118,5 +119,7 @@ DevKitWidget::DevKitWidget() {
 
 	addChild(module->interval);
 
-	addInput(createInput<PJ301MPort>(Vec(33, 34), module, DevKitModule::DEV_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(33, 34), Port::INPUT, module, DevKitModule::DEV_INPUT));
 }
+
+Model *modelDevKit = Model::create<DevKitModule, DevKitWidget>("SynthKit", "DevKit", "DevKit", UTILITY_TAG);
