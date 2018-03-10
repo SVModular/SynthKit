@@ -43,10 +43,11 @@ void AdditionModule::step() {
 	outputs[BOTTOM_OUTPUT].value = val2;
 }
 
+struct AdditionWidget : ModuleWidget {
+	AdditionWidget(AdditionModule *module);
+};
 
-AdditionWidget::AdditionWidget() {
-	AdditionModule *module = new AdditionModule();
-	setModule(module);
+AdditionWidget::AdditionWidget(AdditionModule *module) : ModuleWidget(module) {
 	box.size = Vec(3 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
@@ -56,16 +57,18 @@ AdditionWidget::AdditionWidget() {
 		addChild(panel);
 	}
 
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
+	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	addInput(createInput<PJ301MPort>(Vec(10, 45), module, AdditionModule::TOP1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(10, 94), module, AdditionModule::TOP2_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 45), Port::INPUT, module, AdditionModule::TOP1_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 94), Port::INPUT, module, AdditionModule::TOP2_INPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(10, 143), module, AdditionModule::TOP_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(10, 143), Port::OUTPUT, module, AdditionModule::TOP_OUTPUT));
 
-	addInput(createInput<PJ301MPort>(Vec(10, 203), module, AdditionModule::BOTTOM1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(10, 252), module, AdditionModule::BOTTOM2_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 203), Port::INPUT, module, AdditionModule::BOTTOM1_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 252), Port::INPUT, module, AdditionModule::BOTTOM2_INPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(10, 301), module, AdditionModule::BOTTOM_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(10, 301), Port::OUTPUT, module, AdditionModule::BOTTOM_OUTPUT));
 }
+
+Model *modelAddition = Model::create<AdditionModule, AdditionWidget>("SynthKit", "Addition", "Addition", MIXER_TAG);
