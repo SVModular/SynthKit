@@ -45,9 +45,11 @@ void OrModule::step() {
 }
 
 
-OrWidget::OrWidget() {
-	OrModule *module = new OrModule();
-	setModule(module);
+struct OrWidget : ModuleWidget {
+	OrWidget(OrModule *module);
+};
+
+OrWidget::OrWidget(OrModule *module) : ModuleWidget(module) {
 	box.size = Vec(3 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
@@ -57,16 +59,18 @@ OrWidget::OrWidget() {
 		addChild(panel);
 	}
 
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
+	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	addInput(createInput<PJ301MPort>(Vec(10, 45), module, OrModule::TOP1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(10, 94), module, OrModule::TOP2_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 45), Port::INPUT, module, OrModule::TOP1_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 94), Port::INPUT, module, OrModule::TOP2_INPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(10, 143), module, OrModule::TOP_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(10, 143), Port::OUTPUT, module, OrModule::TOP_OUTPUT));
 
-	addInput(createInput<PJ301MPort>(Vec(10, 203), module, OrModule::BOTTOM1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(10, 252), module, OrModule::BOTTOM2_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 203), Port::INPUT, module, OrModule::BOTTOM1_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 252), Port::INPUT, module, OrModule::BOTTOM2_INPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(10, 301), module, OrModule::BOTTOM_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(10, 301), Port::OUTPUT, module, OrModule::BOTTOM_OUTPUT));
 }
+
+Model *modelOr = Model::create<OrModule, OrWidget>("SynthKit", "Or", "Or", MIXER_TAG);

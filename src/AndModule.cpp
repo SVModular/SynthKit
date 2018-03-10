@@ -44,10 +44,11 @@ void AndModule::step() {
 	outputs[BOTTOM_OUTPUT].value = (float) val2;
 }
 
+struct AndWidget : ModuleWidget {
+	AndWidget(AndModule *module);
+};
 
-AndWidget::AndWidget() {
-	AndModule *module = new AndModule();
-	setModule(module);
+AndWidget::AndWidget(AndModule *module) : ModuleWidget(module) {
 	box.size = Vec(3 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
@@ -57,16 +58,18 @@ AndWidget::AndWidget() {
 		addChild(panel);
 	}
 
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
+	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	addInput(createInput<PJ301MPort>(Vec(10, 45), module, AndModule::TOP1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(10, 95), module, AndModule::TOP2_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 45), Port::INPUT, module, AndModule::TOP1_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 95), Port::INPUT, module, AndModule::TOP2_INPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(10, 143), module, AndModule::TOP_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(10, 143), Port::OUTPUT, module, AndModule::TOP_OUTPUT));
 
-	addInput(createInput<PJ301MPort>(Vec(10, 203), module, AndModule::BOTTOM1_INPUT));
-	addInput(createInput<PJ301MPort>(Vec(10, 252), module, AndModule::BOTTOM2_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 203), Port::INPUT, module, AndModule::BOTTOM1_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(10, 252), Port::INPUT, module, AndModule::BOTTOM2_INPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(10, 301), module, AndModule::BOTTOM_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(10, 301), Port::OUTPUT, module, AndModule::BOTTOM_OUTPUT));
 }
+
+Model *modelAnd = Model::create<AndModule, AndWidget>("SynthKit", "And", "And", MIXER_TAG);
