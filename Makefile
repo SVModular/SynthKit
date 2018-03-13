@@ -13,11 +13,14 @@ LDFLAGS +=
 # Controllers
 CONTROLLERS += $(wildcard src/controller/*.cpp)
 
+# SynthDevKit
+SYNTHDEVKIT += $(wildcard deps/SynthDevKit/src/*.cpp)
+
 # Views
 VIEWS += $(wildcard src/view/*.cpp)
 
 # Add .cpp and .c files to the build
-SOURCES += $(wildcard src/*.cpp) $(CONTROLLERS) $(VIEWS)
+SOURCES += $(wildcard src/*.cpp) $(CONTROLLERS) $(VIEWS) $(SYNTHDEVKIT)
 
 # Add files to the ZIP package when running `make dist`
 # The compiled plugin is automatically added.
@@ -28,7 +31,7 @@ RACK_DIR ?= ../..
 include $(RACK_DIR)/plugin.mk
 
 # Sources to test for ArpTest - this will usually only include your controllers
-TEST_SOURCES += $(CONTROLLERS)
+TEST_SOURCES += $(CONTROLLERS) $(SYNTHDEVKIT)
 
 # Add any tests
 TEST_SOURCES += $(wildcard tests/*.cpp)

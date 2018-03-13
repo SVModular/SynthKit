@@ -1,4 +1,5 @@
 #include "../controller/Seq8.hpp"
+#include "../components/knobs.hpp"
 
 struct Seq8Widget : ModuleWidget {
 	Seq8Widget(Seq8Module *module);

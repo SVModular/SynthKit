@@ -2,7 +2,6 @@
 
 #include "../SynthKit.hpp"
 #include "../../deps/SynthDevKit/src/CV.hpp"
-#include "../components/knobs.hpp"
 
 struct Seq4Module : Module {
 	enum ParamIds {
