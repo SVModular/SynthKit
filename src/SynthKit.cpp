@@ -22,6 +22,7 @@ void init(rack::Plugin *p) {
   p->addModel(modelM1x8CV);
   p->addModel(modelClockDivider);
   p->addModel(modelRotatingClockDivider);
+  p->addModel(modelRotatingClockDivider2);
   p->addModel(modelPrimeClockDivider);
   p->addModel(modelFibonacciClockDivider);
   p->addModel(modelSeq4);
