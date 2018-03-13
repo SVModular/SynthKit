@@ -1,49 +1,49 @@
 #pragma once
 
-#include "rack.hpp"
 #include "asset.hpp"
+#include "rack.hpp"
 
 extern Plugin *plugin;
 
 struct SKRoundWhiteKnob : RoundKnob {
-  SKRoundWhiteKnob ( ) {
+  SKRoundWhiteKnob() {
     setSVG(SVG::load(assetPlugin(plugin, "res/components/RoundWhite.svg")));
     box.size = Vec(38, 38);
   }
 };
 
 struct SKRoundSmallWhiteKnob : SKRoundWhiteKnob {
-  SKRoundSmallWhiteKnob ( ) {
+  SKRoundSmallWhiteKnob() {
     box.size = Vec(28, 28);
   }
 };
 
 struct SKRoundLargeWhiteKnob : SKRoundWhiteKnob {
-  SKRoundLargeWhiteKnob ( ) {
+  SKRoundLargeWhiteKnob() {
     box.size = Vec(46, 46);
   }
 };
 
 struct SKRoundHugeWhiteKnob : SKRoundWhiteKnob {
-  SKRoundHugeWhiteKnob ( ) {
+  SKRoundHugeWhiteKnob() {
     box.size = Vec(56, 56);
   }
 };
 
 struct SKRoundSmallWhiteSnapKnob : SKRoundSmallWhiteKnob {
-  SKRoundSmallWhiteSnapKnob ( ) {
+  SKRoundSmallWhiteSnapKnob() {
     snap = true;
   }
 };
 
 struct SKRoundTinyWhiteKnob : SKRoundWhiteKnob {
-  SKRoundTinyWhiteKnob ( ) {
+  SKRoundTinyWhiteKnob() {
     box.size = Vec(18, 18);
   }
 };
 
 struct SKRoundTinyWhiteSnapKnob : SKRoundTinyWhiteKnob {
-  SKRoundTinyWhiteSnapKnob ( ) {
+  SKRoundTinyWhiteSnapKnob() {
     snap = true;
   }
 };

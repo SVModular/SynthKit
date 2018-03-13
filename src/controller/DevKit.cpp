@@ -1,18 +1,19 @@
 #include "DevKit.hpp"
 
-DevKitModule::DevKitModule() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
-	min = 0;
-	max = 0;
-	minimum = new TextField();
-	maximum = new TextField();
-	count = 0;
-	cvcount = new TextField();
-	cv = new SynthDevKit::CV(1.5f);
-	interval = new TextField();
+DevKitModule::DevKitModule()
+    : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
+  min = 0;
+  max = 0;
+  minimum = new TextField();
+  maximum = new TextField();
+  count = 0;
+  cvcount = new TextField();
+  cv = new SynthDevKit::CV(1.5f);
+  interval = new TextField();
 }
 
 void DevKitModule::step() {
-	float in = inputs[DEV_INPUT].value;
+  float in = inputs[DEV_INPUT].value;
 
   if (min > in) {
     min = in;
@@ -32,16 +33,16 @@ void DevKitModule::step() {
 
   maximum->text = buf2;
 
-	cv->update(in);
-	lights[BLINK_LIGHT].value = cv->isHigh() ? 1.0 : 0.0;
+  cv->update(in);
+  lights[BLINK_LIGHT].value = cv->isHigh() ? 1.0 : 0.0;
 
-	if (cv->newTrigger()) {
-		count++;
-		char buf3[25];
-	  sprintf(buf3, "%d", count);
-		cvcount->text = buf3;
+  if (cv->newTrigger()) {
+    count++;
+    char buf3[25];
+    sprintf(buf3, "%d", count);
+    cvcount->text = buf3;
 
-		sprintf(buf3, "%d", cv->triggerInterval());
-		interval->text = buf3;
-	}
+    sprintf(buf3, "%d", cv->triggerInterval());
+    interval->text = buf3;
+  }
 }

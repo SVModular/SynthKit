@@ -1,18 +1,18 @@
 #include "../controller/DevKit.hpp"
 
 struct DevKitWidget : ModuleWidget {
-	DevKitWidget(DevKitModule *module);
+  DevKitWidget(DevKitModule *module);
 };
 
 DevKitWidget::DevKitWidget(DevKitModule *module) : ModuleWidget(module) {
-	box.size = Vec(6 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
+  box.size = Vec(6 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
-	{
-		SVGPanel *panel = new SVGPanel();
-		panel->box.size = box.size;
-		panel->setBackground(SVG::load(assetPlugin(plugin, "res/DevKit.svg")));
-		addChild(panel);
-	}
+  {
+    SVGPanel *panel = new SVGPanel();
+    panel->box.size = box.size;
+    panel->setBackground(SVG::load(assetPlugin(plugin, "res/DevKit.svg")));
+    addChild(panel);
+  }
 
   module->minimum->box.size = Vec(60, 20);
   module->maximum->box.size = Vec(60, 20);
@@ -25,26 +25,32 @@ DevKitWidget::DevKitWidget(DevKitModule *module) : ModuleWidget(module) {
   addChild(module->minimum);
   addChild(module->maximum);
 
-	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-	addChild(Widget::create<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-	addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-	addChild(Widget::create<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+  addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
+  addChild(
+      Widget::create<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
+  addChild(Widget::create<ScrewSilver>(
+      Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+  addChild(Widget::create<ScrewSilver>(Vec(
+      box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-	addChild(ModuleLightWidget::create<MediumLight<RedLight>>(Vec(40, 173), module, DevKitModule::BLINK_LIGHT));
+  addChild(ModuleLightWidget::create<MediumLight<RedLight>>(
+      Vec(40, 173), module, DevKitModule::BLINK_LIGHT));
 
-	module->cvcount->box.size = Vec(60, 20);
-	module->cvcount->box.pos = Vec(14, 214);
-	module->cvcount->text = "count";
+  module->cvcount->box.size = Vec(60, 20);
+  module->cvcount->box.pos = Vec(14, 214);
+  module->cvcount->text = "count";
 
-	addChild(module->cvcount);
+  addChild(module->cvcount);
 
-	module->interval->box.size = Vec(60, 20);
-	module->interval->box.pos = Vec(14, 264);
-	module->interval->text = "interval";
+  module->interval->box.size = Vec(60, 20);
+  module->interval->box.pos = Vec(14, 264);
+  module->interval->text = "interval";
 
-	addChild(module->interval);
+  addChild(module->interval);
 
-	addInput(Port::create<PJ301MPort>(Vec(33, 34), Port::INPUT, module, DevKitModule::DEV_INPUT));
+  addInput(Port::create<PJ301MPort>(Vec(33, 34), Port::INPUT, module,
+                                    DevKitModule::DEV_INPUT));
 }
 
-Model *modelDevKit = Model::create<DevKitModule, DevKitWidget>("SynthKit", "DevKit", "DevKit", UTILITY_TAG);
+Model *modelDevKit = Model::create<DevKitModule, DevKitWidget>(
+    "SynthKit", "DevKit", "DevKit", UTILITY_TAG);

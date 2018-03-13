@@ -1,31 +1,21 @@
 #include <cstdio>
 
-#include "../SynthKit.hpp"
 #include "../../deps/SynthDevKit/src/CV.hpp"
+#include "../SynthKit.hpp"
 
 struct DevKitModule : Module {
-	enum ParamIds {
-		NUM_PARAMS
-	};
-	enum InputIds {
-		DEV_INPUT,
-		NUM_INPUTS
-	};
-	enum OutputIds {
-		NUM_OUTPUTS
-	};
-	enum LightIds {
-		BLINK_LIGHT,
-		NUM_LIGHTS
-	};
+  enum ParamIds { NUM_PARAMS };
+  enum InputIds { DEV_INPUT, NUM_INPUTS };
+  enum OutputIds { NUM_OUTPUTS };
+  enum LightIds { BLINK_LIGHT, NUM_LIGHTS };
 
-	DevKitModule();
-	void step() override;
+  DevKitModule();
+  void step() override;
   TextField *minimum;
-	TextField *maximum;
+  TextField *maximum;
   float min, max;
-	int count;
-	TextField *cvcount;
-	SynthDevKit::CV *cv;
-	TextField *interval;
+  int count;
+  TextField *cvcount;
+  SynthDevKit::CV *cv;
+  TextField *interval;
 };
