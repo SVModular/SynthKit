@@ -23,15 +23,15 @@ Seq4Widget::Seq4Widget(Seq4Module *module) : ModuleWidget(module) {
                                     Seq4Module::CLOCK_INPUT));
 
   addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(9, 80), module, Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0));
+      Vec(11, 80), module, Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0));
   addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(9, 130), module, Seq4Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
+      Vec(11, 130), module, Seq4Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
   addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(9, 170), module, Seq4Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
+      Vec(11, 170), module, Seq4Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
   addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(9, 210), module, Seq4Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
+      Vec(11, 210), module, Seq4Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
   addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(9, 250), module, Seq4Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
+      Vec(11, 250), module, Seq4Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
 
   addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
       Vec(29, 157), module, Seq4Module::FIRST_LED));
