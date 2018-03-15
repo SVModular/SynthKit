@@ -4,33 +4,22 @@ RotatingClockDivider2Module::RotatingClockDivider2Module()
     : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
   clock = new SynthDevKit::Clock(8, 1.7f);
   cv = new SynthDevKit::CV(1.7f);
-  count = 0;
-}
-
-//float ins[8] = {};
-//float outs[8] = {};
-
-int clampInt(const int _in, const int min = 0, const int max = 7)
-{
-    if (_in > max) return max;
-    if (_in < min) return min;
-    return _in;
 }
 
 void RotatingClockDivider2Module::step() {
   float in = inputs[TOP_INPUT].value;
-  float rotation = round(inputs[ROTATE_INPUT].value);
-  rotation = clampInt(rotation -1);
+  float rotation = round(inputs[ROTATE_INPUT].value);       //name this variable rotation rather than trigger, and round it to an int
+  rotation = clamp((rotation - 1), 0.0, 7.0);   //subtract 1 from rotation to give some headroom for the first rotation, then restrict to between 0 
 
   bool *states = clock->update(in);
   cv->update(rotation);
 
   for (int i = 0; i < 8; i++) {
     int j = (i + rotation);
-    if (j >= 8) {
+     if (j >= 8) {
       j -= 8;
     }
-
+     
     if (states[i] == true) {
       outputs[j].value = in;
       lights[j].value = 1.0f;
@@ -38,9 +27,5 @@ void RotatingClockDivider2Module::step() {
       outputs[j].value = 0;
       lights[j].value = 0;
     }
-  }
-
-  if (count == 8) {
-    count = 0;
   }
 }
