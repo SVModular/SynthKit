@@ -16,6 +16,7 @@ extern Model *modelM1x8;
 extern Model *modelM1x8CV;
 extern Model *modelClockDivider;
 extern Model *modelRotatingClockDivider;
+extern Model *modelRotatingClockDivider2;
 extern Model *modelPrimeClockDivider;
 extern Model *modelFibonacciClockDivider;
 extern Model *modelSeq4;
