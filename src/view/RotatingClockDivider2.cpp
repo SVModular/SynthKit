@@ -66,5 +66,5 @@ RotatingClockDivider2Widget::RotatingClockDivider2Widget(
 
 Model *modelRotatingClockDivider2 =
     Model::create<RotatingClockDivider2Module, RotatingClockDivider2Widget>(
-        "SynthKit", "Rotating Clock Divider 2", "Rotating Clock Divider 2",
+        "SynthKit", "Rotating Clock Divider CV", "Rotating Clock Divider CV",
         UTILITY_TAG, CLOCK_TAG);

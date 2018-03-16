@@ -1,5 +1,5 @@
 #include "../controller/Seq4.hpp"
-#include "../components/knobs.hpp"
+#include "../../deps/rack-components/knobs.hpp"
 
 struct Seq4Widget : ModuleWidget {
   Seq4Widget(Seq4Module *module);
@@ -22,16 +22,16 @@ Seq4Widget::Seq4Widget(Seq4Module *module) : ModuleWidget(module) {
   addInput(Port::create<PJ301MPort>(Vec(10, 34), Port::INPUT, module,
                                     Seq4Module::CLOCK_INPUT));
 
-  addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(11, 80), module, Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(11, 130), module, Seq4Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(11, 170), module, Seq4Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(11, 210), module, Seq4Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundSmallWhiteSnapKnob>(
-      Vec(11, 250), module, Seq4Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSnap>(
+      Vec(7.5, 80), module, Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<RCKnobWhiteSnap>(
+      Vec(7.5, 130), module, Seq4Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSnap>(
+      Vec(7.5, 170), module, Seq4Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSnap>(
+      Vec(7.5, 210), module, Seq4Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSnap>(
+      Vec(7.5, 250), module, Seq4Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
 
   addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
       Vec(29, 157), module, Seq4Module::FIRST_LED));

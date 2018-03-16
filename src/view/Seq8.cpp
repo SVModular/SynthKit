@@ -1,5 +1,5 @@
 #include "../controller/Seq8.hpp"
-#include "../components/knobs.hpp"
+#include "../../deps/rack-components/knobs.hpp"
 
 struct Seq8Widget : ModuleWidget {
   Seq8Widget(Seq8Module *module);
@@ -28,39 +28,39 @@ Seq8Widget::Seq8Widget(Seq8Module *module) : ModuleWidget(module) {
   addOutput(Port::create<PJ301MPort>(Vec(30, 34), Port::OUTPUT, module,
                                      Seq8Module::GATE_OUTPUT));
 
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(6, 76), module, Seq8Module::OCTAVE1_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(6, 112), module, Seq8Module::OCTAVE2_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(6, 146), module, Seq8Module::OCTAVE3_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(6, 182), module, Seq8Module::OCTAVE4_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(6, 216), module, Seq8Module::OCTAVE5_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(6, 252), module, Seq8Module::OCTAVE6_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(6, 286), module, Seq8Module::OCTAVE7_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(6, 322), module, Seq8Module::OCTAVE8_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(0, 76), module, Seq8Module::OCTAVE1_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(0, 112), module, Seq8Module::OCTAVE2_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(0, 146), module, Seq8Module::OCTAVE3_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(0, 182), module, Seq8Module::OCTAVE4_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(0, 216), module, Seq8Module::OCTAVE5_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(0, 252), module, Seq8Module::OCTAVE6_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(0, 286), module, Seq8Module::OCTAVE7_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(0, 322), module, Seq8Module::OCTAVE8_PARAM, 0.0, 8.0, 4.0));
 
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(26, 76), module, Seq8Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(26, 112), module, Seq8Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(26, 146), module, Seq8Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(26, 182), module, Seq8Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(26, 216), module, Seq8Module::SEQ5_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(26, 252), module, Seq8Module::SEQ6_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(26, 286), module, Seq8Module::SEQ7_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<SKRoundTinyWhiteSnapKnob>(
-      Vec(26, 322), module, Seq8Module::SEQ8_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(23, 76), module, Seq8Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(23, 112), module, Seq8Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(23, 146), module, Seq8Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(23, 182), module, Seq8Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(23, 216), module, Seq8Module::SEQ5_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(23, 252), module, Seq8Module::SEQ6_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(23, 286), module, Seq8Module::SEQ7_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
+      Vec(23, 322), module, Seq8Module::SEQ8_PARAM, 0.0, 11.0, 5.0));
 
   addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
       Vec(47, 81), module, Seq8Module::FIRST_LED));
