@@ -9,7 +9,7 @@ RotatingClockDivider2Module::RotatingClockDivider2Module()
 void RotatingClockDivider2Module::step() {
   float in = inputs[TOP_INPUT].value;
   float rotation = round(inputs[ROTATE_INPUT].value);       //name this variable rotation rather than trigger, and round it to an int
-  rotation = clamp((rotation - 1), 0.0, 7.0);   //subtract 1 from rotation to give some headroom for the first rotation, then restrict to between 0 
+  rotation = clamp((rotation - 1), 0.0f, 7.0f);   //subtract 1 from rotation to give some headroom for the first rotation, then restrict to between 0 
 
   bool *states = clock->update(in);
   cv->update(rotation);
