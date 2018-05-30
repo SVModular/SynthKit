@@ -13,18 +13,18 @@ struct FloatDisplay : TransparentWidget {
   float *value;
   std::shared_ptr<Font> font;
 
-	FloatDisplay ( ) {
+  FloatDisplay() {
     value = NULL;
     font = Font::load(assetPlugin(plugin, "res/font/OpenSans-Regular.ttf"));
   }
 
-  void draw (NVGcontext *vg) override {
+  void draw(NVGcontext *vg) override {
     char text[12];
     nvgFontSize(vg, 11);
-		nvgFontFaceId(vg, font->handle);
-		nvgTextLetterSpacing(vg, 1);
+    nvgFontFaceId(vg, font->handle);
+    nvgTextLetterSpacing(vg, 1);
 
-		nvgFillColor(vg, nvgRGBA(235, 160, 0, 0xff));
+    nvgFillColor(vg, nvgRGBA(235, 160, 0, 0xff));
 
     if (value) {
       sprintf(text, "%2.7f", *value);
@@ -40,18 +40,18 @@ struct IntDisplay : TransparentWidget {
   uint32_t *value;
   std::shared_ptr<Font> font;
 
-	IntDisplay ( ) {
+  IntDisplay() {
     value = NULL;
     font = Font::load(assetPlugin(plugin, "res/font/OpenSans-Regular.ttf"));
   }
 
-  void draw (NVGcontext *vg) override {
+  void draw(NVGcontext *vg) override {
     char text[12];
     nvgFontSize(vg, 11);
-		nvgFontFaceId(vg, font->handle);
-		nvgTextLetterSpacing(vg, 1);
+    nvgFontFaceId(vg, font->handle);
+    nvgTextLetterSpacing(vg, 1);
 
-		nvgFillColor(vg, nvgRGBA(235, 160, 0, 0xff));
+    nvgFillColor(vg, nvgRGBA(235, 160, 0, 0xff));
 
     if (value) {
       sprintf(text, "%d", *value);

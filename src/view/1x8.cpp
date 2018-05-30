@@ -17,27 +17,26 @@ M1x8Widget::M1x8Widget(M1x8Module *module) : ModuleWidget(module) {
   }
 
   addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
-  addChild(Widget::create<JLHHexScrew>(
-      Vec(31, 366)));
+  addChild(Widget::create<JLHHexScrew>(Vec(31, 366)));
 
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
-                                    M1x8Module::TOP_INPUT));
+                                          M1x8Module::TOP_INPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 158), Port::OUTPUT, module,
-                                     M1x8Module::FIRST_OUTPUT));
+                                          M1x8Module::FIRST_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 179), Port::OUTPUT, module,
-                                     M1x8Module::SECOND_OUTPUT));
+                                          M1x8Module::SECOND_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 200), Port::OUTPUT, module,
-                                     M1x8Module::THIRD_OUTPUT));
+                                          M1x8Module::THIRD_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 221), Port::OUTPUT, module,
-                                     M1x8Module::FOURTH_OUTPUT));
+                                          M1x8Module::FOURTH_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 242), Port::OUTPUT, module,
-                                     M1x8Module::FIFTH_OUTPUT));
+                                          M1x8Module::FIFTH_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 263), Port::OUTPUT, module,
-                                     M1x8Module::SIXTH_OUTPUT));
+                                          M1x8Module::SIXTH_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 284), Port::OUTPUT, module,
-                                     M1x8Module::SEVENTH_OUTPUT));
+                                          M1x8Module::SEVENTH_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
-                                     M1x8Module::EIGHTH_OUTPUT));
+                                          M1x8Module::EIGHTH_OUTPUT));
 }
 
 Model *modelM1x8 = Model::create<M1x8Module, M1x8Widget>(

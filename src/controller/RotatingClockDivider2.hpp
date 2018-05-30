@@ -1,5 +1,5 @@
-#include <cstdint>
 #include <cmath>
+#include <cstdint>
 
 #include "../../deps/SynthDevKit/src/CV.hpp"
 #include "../../deps/SynthDevKit/src/Clock.hpp"

@@ -1,7 +1,7 @@
 #include "../controller/DevKit.hpp"
 #include "../../deps/rack-components/jacks.hpp"
-#include "display.hpp"
 #include "../../deps/rack-components/screws.hpp"
+#include "display.hpp"
 
 struct DevKitWidget : ModuleWidget {
   DevKitWidget(DevKitModule *module);
@@ -25,9 +25,8 @@ DevKitWidget::DevKitWidget(DevKitModule *module) : ModuleWidget(module) {
   addChild(ModuleLightWidget::create<MediumLight<RedLight>>(
       Vec(33, 234.4), module, DevKitModule::BLINK_LIGHT));
 
-
   addInput(Port::create<RCJackSmallLight>(Vec(25.23, 73), Port::INPUT, module,
-                                    DevKitModule::DEV_INPUT));
+                                          DevKitModule::DEV_INPUT));
 
   // min
   {

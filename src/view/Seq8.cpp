@@ -1,7 +1,7 @@
 #include "../controller/Seq8.hpp"
-#include "knobs.hpp"
 #include "../../deps/rack-components/jacks.hpp"
 #include "../../deps/rack-components/screws.hpp"
+#include "knobs.hpp"
 
 struct Seq8Widget : ModuleWidget {
   Seq8Widget(Seq8Module *module);
@@ -23,9 +23,9 @@ Seq8Widget::Seq8Widget(Seq8Module *module) : ModuleWidget(module) {
   addChild(Widget::create<JLHHexScrew>(Vec(61, 366)));
 
   addInput(Port::create<RCJackSmallDark>(Vec(25.23, 73), Port::INPUT, module,
-                                    Seq8Module::CLOCK_INPUT));
+                                         Seq8Module::CLOCK_INPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(25.23, 305), Port::OUTPUT, module,
-                                     Seq8Module::GATE_OUTPUT));
+                                          Seq8Module::GATE_OUTPUT));
 
   addParam(ParamWidget::create<Knob19Snap>(
       Vec(15, 118), module, Seq8Module::OCTAVE1_PARAM, 0.0, 8.0, 4.0));

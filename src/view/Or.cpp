@@ -17,24 +17,23 @@ OrWidget::OrWidget(OrModule *module) : ModuleWidget(module) {
   }
 
   addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
-  addChild(Widget::create<JLHHexScrew>(
-      Vec(31, 366)));
+  addChild(Widget::create<JLHHexScrew>(Vec(31, 366)));
 
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
-                                    OrModule::TOP1_INPUT));
+                                          OrModule::TOP1_INPUT));
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 115), Port::INPUT, module,
-                                    OrModule::TOP2_INPUT));
+                                          OrModule::TOP2_INPUT));
 
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 158), Port::OUTPUT, module,
-                                     OrModule::TOP_OUTPUT));
+                                          OrModule::TOP_OUTPUT));
 
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 220), Port::INPUT, module,
-                                    OrModule::BOTTOM1_INPUT));
+                                          OrModule::BOTTOM1_INPUT));
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 262), Port::INPUT, module,
-                                    OrModule::BOTTOM2_INPUT));
+                                          OrModule::BOTTOM2_INPUT));
 
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
-                                     OrModule::BOTTOM_OUTPUT));
+                                          OrModule::BOTTOM_OUTPUT));
 }
 
 Model *modelOr =

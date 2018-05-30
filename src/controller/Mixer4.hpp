@@ -1,7 +1,7 @@
 #include <cstdint>
 
-#include "../SynthKit.hpp"
 #include "../../deps/SynthDevKit/src/CV.hpp"
+#include "../SynthKit.hpp"
 
 #define MIXER_CHANNELS 4
 

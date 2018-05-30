@@ -19,29 +19,28 @@ ClockDividerWidget::ClockDividerWidget(ClockDividerModule *module)
   }
 
   addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
-  addChild(Widget::create<JLHHexScrew>(
-      Vec(31, 366)));
+  addChild(Widget::create<JLHHexScrew>(Vec(31, 366)));
 
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
-                                    ClockDividerModule::TOP_INPUT));
+                                          ClockDividerModule::TOP_INPUT));
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 115), Port::INPUT, module,
-                                    ClockDividerModule::RESET_INPUT));
+                                          ClockDividerModule::RESET_INPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 158), Port::OUTPUT, module,
-                                     ClockDividerModule::FIRST_OUTPUT));
+                                          ClockDividerModule::FIRST_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 179), Port::OUTPUT, module,
-                                     ClockDividerModule::SECOND_OUTPUT));
+                                          ClockDividerModule::SECOND_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 200), Port::OUTPUT, module,
-                                     ClockDividerModule::THIRD_OUTPUT));
+                                          ClockDividerModule::THIRD_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 221), Port::OUTPUT, module,
-                                     ClockDividerModule::FOURTH_OUTPUT));
+                                          ClockDividerModule::FOURTH_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 242), Port::OUTPUT, module,
-                                     ClockDividerModule::FIFTH_OUTPUT));
+                                          ClockDividerModule::FIFTH_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 263), Port::OUTPUT, module,
-                                     ClockDividerModule::SIXTH_OUTPUT));
+                                          ClockDividerModule::SIXTH_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 284), Port::OUTPUT, module,
-                                     ClockDividerModule::SEVENTH_OUTPUT));
+                                          ClockDividerModule::SEVENTH_OUTPUT));
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
-                                     ClockDividerModule::EIGHTH_OUTPUT));
+                                          ClockDividerModule::EIGHTH_OUTPUT));
 
   addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
       Vec(36.5, 167.06), module, ClockDividerModule::FIRST_LED));

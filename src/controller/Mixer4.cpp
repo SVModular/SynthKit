@@ -119,7 +119,7 @@ void Mixer4Module::step() {
       // figure out the wet/dry mix
       float mixl = params[MIXL_PARAM + i].value;
 
-      channel_l_out[i] = ((mixl) * recvl) + ((1.0f - mixl) * channel_l_out[i]);
+      channel_l_out[i] = ((mixl)*recvl) + ((1.0f - mixl) * channel_l_out[i]);
     }
 
     // if the right recv is active, get it
@@ -129,13 +129,14 @@ void Mixer4Module::step() {
       // figure out the wet/dry mix
       float mixr = params[MIXR_PARAM + i].value;
 
-      channel_r_out[i] = ((mixr) * recvr) + ((1.0f - mixr) * channel_r_out[i]);
+      channel_r_out[i] = ((mixr)*recvr) + ((1.0f - mixr) * channel_r_out[i]);
     }
     // figure out the volume
     float volume = params[VOLUME_PARAM + i].value;
 
     if (inputs[MIXER_CV_INPUT + i].active) {
-      volume = clamp((inputs[MIXER_CV_INPUT + i].value / 10.0f) + volume, 0.0f, 1.2f);
+      volume = clamp((inputs[MIXER_CV_INPUT + i].value / 10.0f) + volume, 0.0f,
+                     1.2f);
     }
 
     // apply the volume
@@ -150,8 +151,8 @@ void Mixer4Module::step() {
     out_r += channel_r_out[i];
   }
 
-  //out_l /= MIXER_CHANNELS;
-  //out_r /= MIXER_CHANNELS;
+  // out_l /= MIXER_CHANNELS;
+  // out_r /= MIXER_CHANNELS;
 
   // if the left send is active, send it
   if (outputs[MASTERL_SEND_OUTPUT].active) {
@@ -170,7 +171,7 @@ void Mixer4Module::step() {
     // figure out the wet/dry mix
     float mixl = params[MASTERL_MIX_PARAM].value;
 
-    out_l = ((mixl) * recvl) + ((1.0f - mixl) * out_l);
+    out_l = ((mixl)*recvl) + ((1.0f - mixl) * out_l);
   }
 
   // if the right recv is active, get it
@@ -180,7 +181,7 @@ void Mixer4Module::step() {
     // figure out the wet/dry mix
     float mixr = params[MASTERR_MIX_PARAM].value;
 
-    out_r = ((mixr) * recvr) + ((1.0f - mixr) * out_r);
+    out_r = ((mixr)*recvr) + ((1.0f - mixr) * out_r);
   }
 
   master_led_l = out_l;

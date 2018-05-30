@@ -20,37 +20,38 @@ FibonacciClockDividerWidget::FibonacciClockDividerWidget(
   }
 
   addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
-  addChild(Widget::create<JLHHexScrew>(
-      Vec(31, 366)));
+  addChild(Widget::create<JLHHexScrew>(Vec(31, 366)));
 
-  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
-                                    FibonacciClockDividerModule::TOP_INPUT));
-  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 115), Port::INPUT, module,
-                                    FibonacciClockDividerModule::RESET_INPUT));
+  addInput(
+      Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
+                                     FibonacciClockDividerModule::TOP_INPUT));
+  addInput(
+      Port::create<RCJackSmallLight>(Vec(10.23, 115), Port::INPUT, module,
+                                     FibonacciClockDividerModule::RESET_INPUT));
   addOutput(
       Port::create<RCJackSmallDark>(Vec(10.23, 158), Port::OUTPUT, module,
-                               FibonacciClockDividerModule::FIRST_OUTPUT));
-  addOutput(
-      Port::create<RCJackSmallDark>(Vec(10.23, 179), Port::OUTPUT, module,
-                               FibonacciClockDividerModule::SECOND_OUTPUT));
+                                    FibonacciClockDividerModule::FIRST_OUTPUT));
+  addOutput(Port::create<RCJackSmallDark>(
+      Vec(10.23, 179), Port::OUTPUT, module,
+      FibonacciClockDividerModule::SECOND_OUTPUT));
   addOutput(
       Port::create<RCJackSmallDark>(Vec(10.23, 200), Port::OUTPUT, module,
-                               FibonacciClockDividerModule::THIRD_OUTPUT));
-  addOutput(
-      Port::create<RCJackSmallDark>(Vec(10.23, 221), Port::OUTPUT, module,
-                               FibonacciClockDividerModule::FOURTH_OUTPUT));
+                                    FibonacciClockDividerModule::THIRD_OUTPUT));
+  addOutput(Port::create<RCJackSmallDark>(
+      Vec(10.23, 221), Port::OUTPUT, module,
+      FibonacciClockDividerModule::FOURTH_OUTPUT));
   addOutput(
       Port::create<RCJackSmallDark>(Vec(10.23, 242), Port::OUTPUT, module,
-                               FibonacciClockDividerModule::FIFTH_OUTPUT));
+                                    FibonacciClockDividerModule::FIFTH_OUTPUT));
   addOutput(
       Port::create<RCJackSmallDark>(Vec(10.23, 263), Port::OUTPUT, module,
-                               FibonacciClockDividerModule::SIXTH_OUTPUT));
-  addOutput(
-      Port::create<RCJackSmallDark>(Vec(10.23, 284), Port::OUTPUT, module,
-                               FibonacciClockDividerModule::SEVENTH_OUTPUT));
-  addOutput(
-      Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
-                               FibonacciClockDividerModule::EIGHTH_OUTPUT));
+                                    FibonacciClockDividerModule::SIXTH_OUTPUT));
+  addOutput(Port::create<RCJackSmallDark>(
+      Vec(10.23, 284), Port::OUTPUT, module,
+      FibonacciClockDividerModule::SEVENTH_OUTPUT));
+  addOutput(Port::create<RCJackSmallDark>(
+      Vec(10.23, 305), Port::OUTPUT, module,
+      FibonacciClockDividerModule::EIGHTH_OUTPUT));
 
   addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
       Vec(36.5, 167.06), module, FibonacciClockDividerModule::FIRST_LED));

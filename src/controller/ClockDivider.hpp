@@ -2,8 +2,8 @@
 
 #include <cstdint>
 
-#include "../../deps/SynthDevKit/src/Clock.hpp"
 #include "../../deps/SynthDevKit/src/CV.hpp"
+#include "../../deps/SynthDevKit/src/Clock.hpp"
 #include "../SynthKit.hpp"
 
 struct ClockDividerModule : Module {

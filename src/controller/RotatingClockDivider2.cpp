@@ -17,15 +17,20 @@ void RotatingClockDivider2Module::step() {
   }
 
   float in = inputs[TOP_INPUT].value;
-  float rotation = round(inputs[ROTATE_INPUT].value);       //name this variable rotation rather than trigger, and round it to an int
-  rotation = clamp((rotation - 1), 0.0f, 7.0f);   //subtract 1 from rotation to give some headroom for the first rotation, then restrict to between 0
+  float rotation =
+      round(inputs[ROTATE_INPUT].value); // name this variable rotation rather
+                                         // than trigger, and round it to an int
+  rotation = clamp((rotation - 1), 0.0f, 7.0f); // subtract 1 from rotation to
+                                                // give some headroom for the
+                                                // first rotation, then restrict
+                                                // to between 0
 
   bool *states = clock->update(in);
   cv->update(rotation);
 
   for (int i = 0; i < 8; i++) {
     int j = (i + rotation);
-     if (j >= 8) {
+    if (j >= 8) {
       j -= 8;
     }
 

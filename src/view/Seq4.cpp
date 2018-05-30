@@ -1,7 +1,7 @@
 #include "../controller/Seq4.hpp"
-#include "knobs.hpp"
 #include "../../deps/rack-components/jacks.hpp"
 #include "../../deps/rack-components/screws.hpp"
+#include "knobs.hpp"
 
 struct Seq4Widget : ModuleWidget {
   Seq4Widget(Seq4Module *module);
@@ -18,11 +18,10 @@ Seq4Widget::Seq4Widget(Seq4Module *module) : ModuleWidget(module) {
   }
 
   addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
-  addChild(Widget::create<JLHHexScrew>(
-      Vec(31, 366)));
+  addChild(Widget::create<JLHHexScrew>(Vec(31, 366)));
 
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
-                                    Seq4Module::CLOCK_INPUT));
+                                          Seq4Module::CLOCK_INPUT));
 
   addParam(ParamWidget::create<Knob30Snap>(
       Vec(7.5, 123), module, Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0));
@@ -45,7 +44,7 @@ Seq4Widget::Seq4Widget(Seq4Module *module) : ModuleWidget(module) {
       Vec(36.5, 269.28), module, Seq4Module::FOURTH_LED));
 
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
-                                     Seq4Module::GATE_OUTPUT));
+                                          Seq4Module::GATE_OUTPUT));
 }
 
 Model *modelSeq4 = Model::create<Seq4Module, Seq4Widget>(

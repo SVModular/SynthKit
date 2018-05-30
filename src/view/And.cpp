@@ -17,24 +17,23 @@ AndWidget::AndWidget(AndModule *module) : ModuleWidget(module) {
   }
 
   addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
-  addChild(Widget::create<JLHHexScrew>(
-      Vec(31, 366)));
+  addChild(Widget::create<JLHHexScrew>(Vec(31, 366)));
 
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
-                                    AndModule::TOP1_INPUT));
+                                          AndModule::TOP1_INPUT));
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 115), Port::INPUT, module,
-                                    AndModule::TOP2_INPUT));
+                                          AndModule::TOP2_INPUT));
 
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 158), Port::OUTPUT, module,
-                                     AndModule::TOP_OUTPUT));
+                                          AndModule::TOP_OUTPUT));
 
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 220), Port::INPUT, module,
-                                    AndModule::BOTTOM1_INPUT));
+                                          AndModule::BOTTOM1_INPUT));
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 262), Port::INPUT, module,
-                                    AndModule::BOTTOM2_INPUT));
+                                          AndModule::BOTTOM2_INPUT));
 
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
-                                     AndModule::BOTTOM_OUTPUT));
+                                          AndModule::BOTTOM_OUTPUT));
 }
 
 Model *modelAnd =
