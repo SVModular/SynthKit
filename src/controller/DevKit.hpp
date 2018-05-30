@@ -11,11 +11,9 @@ struct DevKitModule : Module {
 
   DevKitModule();
   void step() override;
-  TextField *minimum;
-  TextField *maximum;
-  float min, max;
-  int count;
-  TextField *cvcount;
-  SynthDevKit::CV *cv;
-  TextField *interval;
+  float min = 0;
+  float max = 0;
+  uint32_t cvcount = 0;
+  uint32_t cvinterval = 0;
+  SynthDevKit::CV *cv = new SynthDevKit::CV(1.3f);
 };

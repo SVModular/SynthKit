@@ -1,4 +1,6 @@
 #include "../controller/Addition.hpp"
+#include "../../deps/rack-components/jacks.hpp"
+#include "../../deps/rack-components/screws.hpp"
 
 struct AdditionWidget : ModuleWidget {
   AdditionWidget(AdditionModule *module);
@@ -14,24 +16,24 @@ AdditionWidget::AdditionWidget(AdditionModule *module) : ModuleWidget(module) {
     addChild(panel);
   }
 
-  addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-  addChild(Widget::create<ScrewSilver>(
-      Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+  addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
+  addChild(Widget::create<JLHHexScrew>(
+      Vec(31, 366)));
 
-  addInput(Port::create<PJ301MPort>(Vec(10, 45), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
                                     AdditionModule::TOP1_INPUT));
-  addInput(Port::create<PJ301MPort>(Vec(10, 94), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallDark>(Vec(10.23, 115), Port::INPUT, module,
                                     AdditionModule::TOP2_INPUT));
 
-  addOutput(Port::create<PJ301MPort>(Vec(10, 143), Port::OUTPUT, module,
+  addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 158), Port::OUTPUT, module,
                                      AdditionModule::TOP_OUTPUT));
 
-  addInput(Port::create<PJ301MPort>(Vec(10, 203), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 220), Port::INPUT, module,
                                     AdditionModule::BOTTOM1_INPUT));
-  addInput(Port::create<PJ301MPort>(Vec(10, 252), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallDark>(Vec(10.23, 262), Port::INPUT, module,
                                     AdditionModule::BOTTOM2_INPUT));
 
-  addOutput(Port::create<PJ301MPort>(Vec(10, 301), Port::OUTPUT, module,
+  addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
                                      AdditionModule::BOTTOM_OUTPUT));
 }
 

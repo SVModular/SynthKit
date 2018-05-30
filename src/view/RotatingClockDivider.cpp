@@ -1,4 +1,6 @@
 #include "../controller/RotatingClockDivider.hpp"
+#include "../../deps/rack-components/jacks.hpp"
+#include "../../deps/rack-components/screws.hpp"
 
 struct RotatingClockDividerWidget : ModuleWidget {
   RotatingClockDividerWidget(RotatingClockDividerModule *module);
@@ -17,51 +19,54 @@ RotatingClockDividerWidget::RotatingClockDividerWidget(
     addChild(panel);
   }
 
-  addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH + 8, 0)));
-  addChild(Widget::create<ScrewSilver>(
-      Vec(RACK_GRID_WIDTH + 8, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+  addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
+  addChild(Widget::create<JLHHexScrew>(
+      Vec(46, 366)));
 
-  addInput(Port::create<PJ301MPort>(Vec(6, 34), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(31.23, 109), Port::INPUT, module,
                                     RotatingClockDividerModule::ROTATE_INPUT));
-  addInput(Port::create<PJ301MPort>(Vec(30, 34), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(31.23, 65), Port::INPUT, module,
                                     RotatingClockDividerModule::TOP_INPUT));
-  addOutput(Port::create<PJ301MPort>(Vec(17, 73), Port::OUTPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(3.8, 87), Port::INPUT, module,
+                                    RotatingClockDividerModule::RESET_INPUT));
+
+  addOutput(Port::create<RCJackSmallDark>(Vec(17.23, 158), Port::OUTPUT, module,
                                      RotatingClockDividerModule::FIRST_OUTPUT));
   addOutput(
-      Port::create<PJ301MPort>(Vec(17, 108), Port::OUTPUT, module,
+      Port::create<RCJackSmallDark>(Vec(17.23, 179), Port::OUTPUT, module,
                                RotatingClockDividerModule::SECOND_OUTPUT));
-  addOutput(Port::create<PJ301MPort>(Vec(17, 143), Port::OUTPUT, module,
+  addOutput(Port::create<RCJackSmallDark>(Vec(17.23, 200), Port::OUTPUT, module,
                                      RotatingClockDividerModule::THIRD_OUTPUT));
   addOutput(
-      Port::create<PJ301MPort>(Vec(17, 178), Port::OUTPUT, module,
+      Port::create<RCJackSmallDark>(Vec(17.23, 221), Port::OUTPUT, module,
                                RotatingClockDividerModule::FOURTH_OUTPUT));
-  addOutput(Port::create<PJ301MPort>(Vec(17, 213), Port::OUTPUT, module,
+  addOutput(Port::create<RCJackSmallDark>(Vec(17.23, 242), Port::OUTPUT, module,
                                      RotatingClockDividerModule::FIFTH_OUTPUT));
-  addOutput(Port::create<PJ301MPort>(Vec(17, 248), Port::OUTPUT, module,
+  addOutput(Port::create<RCJackSmallDark>(Vec(17.23, 263), Port::OUTPUT, module,
                                      RotatingClockDividerModule::SIXTH_OUTPUT));
   addOutput(
-      Port::create<PJ301MPort>(Vec(17, 283), Port::OUTPUT, module,
+      Port::create<RCJackSmallDark>(Vec(17.23, 284), Port::OUTPUT, module,
                                RotatingClockDividerModule::SEVENTH_OUTPUT));
   addOutput(
-      Port::create<PJ301MPort>(Vec(17, 318), Port::OUTPUT, module,
+      Port::create<RCJackSmallDark>(Vec(17.23, 305), Port::OUTPUT, module,
                                RotatingClockDividerModule::EIGHTH_OUTPUT));
 
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(43, 81), module, RotatingClockDividerModule::FIRST_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(43, 116), module, RotatingClockDividerModule::SECOND_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(43, 151), module, RotatingClockDividerModule::THIRD_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(43, 186), module, RotatingClockDividerModule::FOURTH_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(43, 221), module, RotatingClockDividerModule::FIFTH_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(43, 256), module, RotatingClockDividerModule::SIXTH_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(43, 291), module, RotatingClockDividerModule::SEVENTH_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(43, 326), module, RotatingClockDividerModule::EIGHTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(44, 167.06), module, RotatingClockDividerModule::FIRST_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(44, 188.06), module, RotatingClockDividerModule::SECOND_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(44, 209.06), module, RotatingClockDividerModule::THIRD_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(44, 230.06), module, RotatingClockDividerModule::FOURTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(44, 251.06), module, RotatingClockDividerModule::FIFTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(44, 272.06), module, RotatingClockDividerModule::SIXTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(44, 293.06), module, RotatingClockDividerModule::SEVENTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(44, 314.06), module, RotatingClockDividerModule::EIGHTH_LED));
 }
 
 Model *modelRotatingClockDivider =

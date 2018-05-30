@@ -3,11 +3,12 @@
 #include <cstdint>
 
 #include "../../deps/SynthDevKit/src/Clock.hpp"
+#include "../../deps/SynthDevKit/src/CV.hpp"
 #include "../SynthKit.hpp"
 
 struct ClockDividerModule : Module {
   enum ParamIds { NUM_PARAMS };
-  enum InputIds { TOP_INPUT, NUM_INPUTS };
+  enum InputIds { TOP_INPUT, RESET_INPUT, NUM_INPUTS };
   enum OutputIds {
     FIRST_OUTPUT,
     SECOND_OUTPUT,
@@ -35,4 +36,5 @@ struct ClockDividerModule : Module {
   void step() override;
 
   SynthDevKit::Clock *clock;
+  SynthDevKit::CV *cv;
 };

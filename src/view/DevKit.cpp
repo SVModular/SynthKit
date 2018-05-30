@@ -1,11 +1,14 @@
 #include "../controller/DevKit.hpp"
+#include "../../deps/rack-components/jacks.hpp"
+#include "display.hpp"
+#include "../../deps/rack-components/screws.hpp"
 
 struct DevKitWidget : ModuleWidget {
   DevKitWidget(DevKitModule *module);
 };
 
 DevKitWidget::DevKitWidget(DevKitModule *module) : ModuleWidget(module) {
-  box.size = Vec(6 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
+  box.size = Vec(5 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
   {
     SVGPanel *panel = new SVGPanel();
@@ -14,42 +17,53 @@ DevKitWidget::DevKitWidget(DevKitModule *module) : ModuleWidget(module) {
     addChild(panel);
   }
 
-  module->minimum->box.size = Vec(60, 20);
-  module->maximum->box.size = Vec(60, 20);
-  module->minimum->box.pos = Vec(14, 78);
-  module->maximum->box.pos = Vec(14, 126);
-
-  module->minimum->text = "minimum";
-  module->maximum->text = "maximum";
-
-  addChild(module->minimum);
-  addChild(module->maximum);
-
-  addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-  addChild(
-      Widget::create<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-  addChild(Widget::create<ScrewSilver>(
-      Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-  addChild(Widget::create<ScrewSilver>(Vec(
-      box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+  addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
+  addChild(Widget::create<JLHHexScrew>(Vec(61, 1)));
+  addChild(Widget::create<JLHHexScrew>(Vec(1, 366)));
+  addChild(Widget::create<JLHHexScrew>(Vec(61, 366)));
 
   addChild(ModuleLightWidget::create<MediumLight<RedLight>>(
-      Vec(40, 173), module, DevKitModule::BLINK_LIGHT));
+      Vec(33, 234.4), module, DevKitModule::BLINK_LIGHT));
 
-  module->cvcount->box.size = Vec(60, 20);
-  module->cvcount->box.pos = Vec(14, 214);
-  module->cvcount->text = "count";
 
-  addChild(module->cvcount);
-
-  module->interval->box.size = Vec(60, 20);
-  module->interval->box.pos = Vec(14, 264);
-  module->interval->text = "interval";
-
-  addChild(module->interval);
-
-  addInput(Port::create<PJ301MPort>(Vec(33, 34), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(25.23, 73), Port::INPUT, module,
                                     DevKitModule::DEV_INPUT));
+
+  // min
+  {
+    FloatDisplay *f1 = new FloatDisplay();
+    f1->value = &module->min;
+    f1->box.pos = Vec(5.5, 86.75);
+    f1->box.size = Vec(40, 20);
+    addChild(f1);
+  }
+
+  // max
+  {
+    FloatDisplay *f2 = new FloatDisplay();
+    f2->value = &module->max;
+    f2->box.pos = Vec(6.5, 106.35);
+    f2->box.size = Vec(40, 20);
+    addChild(f2);
+  }
+
+  // cvcount
+  {
+    IntDisplay *i1 = new IntDisplay();
+    i1->value = &module->cvcount;
+    i1->box.pos = Vec(6, 139.4);
+    i1->box.size = Vec(40, 20);
+    addChild(i1);
+  }
+
+  // interval
+  {
+    IntDisplay *i2 = new IntDisplay();
+    i2->value = &module->cvinterval;
+    i2->box.pos = Vec(6, 158.8);
+    i2->box.size = Vec(40, 20);
+    addChild(i2);
+  }
 }
 
 Model *modelDevKit = Model::create<DevKitModule, DevKitWidget>(

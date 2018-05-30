@@ -1,11 +1,12 @@
 #include <cstdint>
 
 #include "../../deps/SynthDevKit/src/FibonacciClock.hpp"
+#include "../../deps/SynthDevKit/src/CV.hpp"
 #include "../SynthKit.hpp"
 
 struct FibonacciClockDividerModule : Module {
   enum ParamIds { NUM_PARAMS };
-  enum InputIds { TOP_INPUT, NUM_INPUTS };
+  enum InputIds { TOP_INPUT, RESET_INPUT, NUM_INPUTS };
   enum OutputIds {
     FIRST_OUTPUT,
     SECOND_OUTPUT,
@@ -33,4 +34,5 @@ struct FibonacciClockDividerModule : Module {
   void step() override;
 
   SynthDevKit::FibonacciClock *clock;
+  SynthDevKit::CV *cv;
 };

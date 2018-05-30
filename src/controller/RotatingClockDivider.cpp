@@ -4,10 +4,19 @@ RotatingClockDividerModule::RotatingClockDividerModule()
     : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
   clock = new SynthDevKit::Clock(8, 1.7f);
   cv = new SynthDevKit::CV(1.7f);
+  reset = new SynthDevKit::CV(1.7f);
   count = 0;
 }
 
 void RotatingClockDividerModule::step() {
+  float reset_in = inputs[RESET_INPUT].value;
+
+  reset->update(reset_in);
+
+  if (reset->newTrigger()) {
+    clock->reset();
+  }
+
   float in = inputs[TOP_INPUT].value;
   float trigger = inputs[ROTATE_INPUT].value;
 

@@ -1,12 +1,14 @@
 #include "../controller/Seq8.hpp"
-#include "../../deps/rack-components/knobs.hpp"
+#include "knobs.hpp"
+#include "../../deps/rack-components/jacks.hpp"
+#include "../../deps/rack-components/screws.hpp"
 
 struct Seq8Widget : ModuleWidget {
   Seq8Widget(Seq8Module *module);
 };
 
 Seq8Widget::Seq8Widget(Seq8Module *module) : ModuleWidget(module) {
-  box.size = Vec(4 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
+  box.size = Vec(5 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
   {
     SVGPanel *panel = new SVGPanel();
@@ -15,69 +17,66 @@ Seq8Widget::Seq8Widget(Seq8Module *module) : ModuleWidget(module) {
     addChild(panel);
   }
 
-  addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-  addChild(Widget::create<ScrewSilver>(
-      Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-  addChild(Widget::create<ScrewSilver>(
-      Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-  addChild(Widget::create<ScrewSilver>(Vec(
-      box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+  addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
+  addChild(Widget::create<JLHHexScrew>(Vec(61, 1)));
+  addChild(Widget::create<JLHHexScrew>(Vec(1, 366)));
+  addChild(Widget::create<JLHHexScrew>(Vec(61, 366)));
 
-  addInput(Port::create<PJ301MPort>(Vec(5, 34), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallDark>(Vec(25.23, 73), Port::INPUT, module,
                                     Seq8Module::CLOCK_INPUT));
-  addOutput(Port::create<PJ301MPort>(Vec(30, 34), Port::OUTPUT, module,
+  addOutput(Port::create<RCJackSmallDark>(Vec(25.23, 305), Port::OUTPUT, module,
                                      Seq8Module::GATE_OUTPUT));
 
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(0, 76), module, Seq8Module::OCTAVE1_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(0, 112), module, Seq8Module::OCTAVE2_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(0, 146), module, Seq8Module::OCTAVE3_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(0, 182), module, Seq8Module::OCTAVE4_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(0, 216), module, Seq8Module::OCTAVE5_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(0, 252), module, Seq8Module::OCTAVE6_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(0, 286), module, Seq8Module::OCTAVE7_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(0, 322), module, Seq8Module::OCTAVE8_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(15, 118), module, Seq8Module::OCTAVE1_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(15, 139), module, Seq8Module::OCTAVE2_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(15, 160), module, Seq8Module::OCTAVE3_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(15, 181), module, Seq8Module::OCTAVE4_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(15, 202), module, Seq8Module::OCTAVE5_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(15, 223), module, Seq8Module::OCTAVE6_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(15, 244), module, Seq8Module::OCTAVE7_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(15, 265), module, Seq8Module::OCTAVE8_PARAM, 0.0, 8.0, 4.0));
 
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(23, 76), module, Seq8Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(23, 112), module, Seq8Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(23, 146), module, Seq8Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(23, 182), module, Seq8Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(23, 216), module, Seq8Module::SEQ5_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(23, 252), module, Seq8Module::SEQ6_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(23, 286), module, Seq8Module::SEQ7_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSmallSnap>(
-      Vec(23, 322), module, Seq8Module::SEQ8_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(41, 118), module, Seq8Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(41, 139), module, Seq8Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(41, 160), module, Seq8Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(41, 181), module, Seq8Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(41, 202), module, Seq8Module::SEQ5_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(41, 223), module, Seq8Module::SEQ6_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(41, 244), module, Seq8Module::SEQ7_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(41, 265), module, Seq8Module::SEQ8_PARAM, 0.0, 11.0, 5.0));
 
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(47, 81), module, Seq8Module::FIRST_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(47, 116), module, Seq8Module::SECOND_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(47, 151), module, Seq8Module::THIRD_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(47, 186), module, Seq8Module::FOURTH_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(47, 221), module, Seq8Module::FIFTH_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(47, 256), module, Seq8Module::SIXTH_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(47, 291), module, Seq8Module::SEVENTH_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(47, 326), module, Seq8Module::EIGHTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(66.5, 124.28), module, Seq8Module::FIRST_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(66.5, 145.28), module, Seq8Module::SECOND_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(66.5, 166.28), module, Seq8Module::THIRD_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(66.5, 187.28), module, Seq8Module::FOURTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(66.5, 208.28), module, Seq8Module::FIFTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(66.5, 229.28), module, Seq8Module::SIXTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(66.5, 250.28), module, Seq8Module::SEVENTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(66.5, 271.28), module, Seq8Module::EIGHTH_LED));
 }
 
 Model *modelSeq8 = Model::create<Seq8Module, Seq8Widget>(

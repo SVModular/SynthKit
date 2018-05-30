@@ -11,3 +11,4 @@ uint8_t test_clock_divider_sixth_clock();
 uint8_t test_clock_divider_seventh_clock();
 uint8_t test_clock_divider_eighth_clock();
 uint8_t test_clock_divider_ninth_clock();
+uint8_t test_clock_divider_reset();

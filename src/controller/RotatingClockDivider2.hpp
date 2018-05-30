@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <cmath>
 
 #include "../../deps/SynthDevKit/src/CV.hpp"
 #include "../../deps/SynthDevKit/src/Clock.hpp"
@@ -6,7 +7,7 @@
 
 struct RotatingClockDivider2Module : Module {
   enum ParamIds { NUM_PARAMS };
-  enum InputIds { TOP_INPUT, ROTATE_INPUT, NUM_INPUTS };
+  enum InputIds { TOP_INPUT, ROTATE_INPUT, RESET_INPUT, NUM_INPUTS };
   enum OutputIds {
     FIRST_OUTPUT,
     SECOND_OUTPUT,
@@ -36,5 +37,6 @@ struct RotatingClockDivider2Module : Module {
 
   SynthDevKit::Clock *clock;
   SynthDevKit::CV *cv;
+  SynthDevKit::CV *reset;
   int count;
 };

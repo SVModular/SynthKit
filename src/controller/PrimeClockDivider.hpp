@@ -1,11 +1,12 @@
 #include <cstdint>
 
 #include "../../deps/SynthDevKit/src/PrimeClock.hpp"
+#include "../../deps/SynthDevKit/src/CV.hpp"
 #include "../SynthKit.hpp"
 
 struct PrimeClockDividerModule : Module {
   enum ParamIds { NUM_PARAMS };
-  enum InputIds { TOP_INPUT, NUM_INPUTS };
+  enum InputIds { TOP_INPUT, RESET_INPUT, NUM_INPUTS };
   enum OutputIds {
     FIRST_OUTPUT,
     SECOND_OUTPUT,
@@ -33,4 +34,5 @@ struct PrimeClockDividerModule : Module {
   void step() override;
 
   SynthDevKit::PrimeClock *clock;
+  SynthDevKit::CV *cv;
 };

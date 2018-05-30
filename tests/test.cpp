@@ -12,4 +12,5 @@ void arptest_init() {
   add_test(test_clock_divider_seventh_clock, "Clock Divider Seventh Clock");
   add_test(test_clock_divider_eighth_clock, "Clock Divider Eighth Clock");
   add_test(test_clock_divider_ninth_clock, "Clock Divider Ninth Clock");
+  add_test(test_clock_divider_reset, "Clock Divider Reset");
 }

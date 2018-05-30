@@ -28,6 +28,7 @@ void init(rack::Plugin *p) {
   p->addModel(modelSeq4);
   p->addModel(modelSeq8);
   p->addModel(modelDevKit);
+  p->addModel(modelMixer4);
 
   // Any other plugin initialization may go here.
   // As an alternative, consider lazy-loading assets and lookup tables when your

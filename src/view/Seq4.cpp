@@ -1,5 +1,7 @@
 #include "../controller/Seq4.hpp"
-#include "../../deps/rack-components/knobs.hpp"
+#include "knobs.hpp"
+#include "../../deps/rack-components/jacks.hpp"
+#include "../../deps/rack-components/screws.hpp"
 
 struct Seq4Widget : ModuleWidget {
   Seq4Widget(Seq4Module *module);
@@ -15,34 +17,34 @@ Seq4Widget::Seq4Widget(Seq4Module *module) : ModuleWidget(module) {
     addChild(panel);
   }
 
-  addChild(Widget::create<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-  addChild(Widget::create<ScrewSilver>(
-      Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+  addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
+  addChild(Widget::create<JLHHexScrew>(
+      Vec(31, 366)));
 
-  addInput(Port::create<PJ301MPort>(Vec(10, 34), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
                                     Seq4Module::CLOCK_INPUT));
 
-  addParam(ParamWidget::create<RCKnobWhiteSnap>(
-      Vec(7.5, 80), module, Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<RCKnobWhiteSnap>(
-      Vec(7.5, 130), module, Seq4Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSnap>(
-      Vec(7.5, 170), module, Seq4Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSnap>(
-      Vec(7.5, 210), module, Seq4Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<RCKnobWhiteSnap>(
-      Vec(7.5, 250), module, Seq4Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob30Snap>(
+      Vec(7.5, 123), module, Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(13, 185), module, Seq4Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(13, 211), module, Seq4Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(13, 237), module, Seq4Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
+  addParam(ParamWidget::create<Knob19Snap>(
+      Vec(13, 263), module, Seq4Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
 
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(29, 157), module, Seq4Module::FIRST_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(29, 197), module, Seq4Module::SECOND_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(29, 237), module, Seq4Module::THIRD_LED));
-  addChild(ModuleLightWidget::create<MediumLight<GreenLight>>(
-      Vec(29, 277), module, Seq4Module::FOURTH_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(36.5, 191.28), module, Seq4Module::FIRST_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(36.5, 217.28), module, Seq4Module::SECOND_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(36.5, 243.28), module, Seq4Module::THIRD_LED));
+  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+      Vec(36.5, 269.28), module, Seq4Module::FOURTH_LED));
 
-  addOutput(Port::create<PJ301MPort>(Vec(10, 310), Port::OUTPUT, module,
+  addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
                                      Seq4Module::GATE_OUTPUT));
 }
 

@@ -6,7 +6,7 @@
 
 struct RotatingClockDividerModule : Module {
   enum ParamIds { NUM_PARAMS };
-  enum InputIds { TOP_INPUT, ROTATE_INPUT, NUM_INPUTS };
+  enum InputIds { TOP_INPUT, ROTATE_INPUT, RESET_INPUT, NUM_INPUTS };
   enum OutputIds {
     FIRST_OUTPUT,
     SECOND_OUTPUT,
@@ -35,6 +35,6 @@ struct RotatingClockDividerModule : Module {
   void step() override;
 
   SynthDevKit::Clock *clock;
-  SynthDevKit::CV *cv;
+  SynthDevKit::CV *cv, *reset;
   int count;
 };
