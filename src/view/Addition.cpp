@@ -21,7 +21,7 @@ AdditionWidget::AdditionWidget(AdditionModule *module) : ModuleWidget(module) {
 
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
                                           AdditionModule::TOP1_INPUT));
-  addInput(Port::create<RCJackSmallDark>(Vec(10.23, 115), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 115), Port::INPUT, module,
                                          AdditionModule::TOP2_INPUT));
 
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 158), Port::OUTPUT, module,
@@ -29,7 +29,7 @@ AdditionWidget::AdditionWidget(AdditionModule *module) : ModuleWidget(module) {
 
   addInput(Port::create<RCJackSmallLight>(Vec(10.23, 220), Port::INPUT, module,
                                           AdditionModule::BOTTOM1_INPUT));
-  addInput(Port::create<RCJackSmallDark>(Vec(10.23, 262), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 262), Port::INPUT, module,
                                          AdditionModule::BOTTOM2_INPUT));
 
   addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
