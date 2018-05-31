@@ -58,7 +58,7 @@ FibonacciClockDividerWidget::FibonacciClockDividerWidget(
   addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
       Vec(36.5, 188.06), module, FibonacciClockDividerModule::SECOND_LED));
   addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
-      Vec(36.5, 309.06), module, FibonacciClockDividerModule::THIRD_LED));
+      Vec(36.5, 209.06), module, FibonacciClockDividerModule::THIRD_LED));
   addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
       Vec(36.5, 230.06), module, FibonacciClockDividerModule::FOURTH_LED));
   addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
