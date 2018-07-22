@@ -12,7 +12,7 @@ void Seq4Module::step() {
 
   if (cv->newTrigger()) {
     float note = octives[(int)params[OCTAVE_PARAM].value] +
-                 notes[(int)params[OCTAVE_PARAM + currentStep + 1].value];
+                 notes[(int)params[SEQ1_PARAM + currentStep].value];
 
     outputs[GATE_OUTPUT].value = note;
 

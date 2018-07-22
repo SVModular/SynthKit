@@ -11,16 +11,19 @@ void Seq8Module::step() {
   cv->update(in);
 
   if (cv->newTrigger()) {
+    float note_param = params[SEQ1_PARAM + currentStep].value;
+    float oct_param = params[OCTAVE1_PARAM + currentStep].value;
+
+    outputs[GATE_OUTPUT].value = notes[(int)note_param] + octives[(int)oct_param];
+
     for (int i = 0; i < 8; i++) {
       if (i == currentStep) {
-        float note = octives[(int)params[i].value] +
-                     notes[(int)params[i + currentStep + 1].value];
-        outputs[GATE_OUTPUT].value = note;
         lights[i].value = 1.0;
       } else {
         lights[i].value = 0.0;
       }
     }
+
     currentStep++;
 
     if (currentStep == 8) {
