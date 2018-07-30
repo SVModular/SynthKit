@@ -1,9 +1,9 @@
-# Addition Module (additive synthesis)
+# Subtract
 
-![Addition Module](images/addition.png)
+![Subtract Module](images/subtract.png)
 
-The addition module accepts two waveform inputs, adds the waveforms together,
-and outputs the resulting waveform.
+The **subtract** module accepts two waveform inputs, subtracts the second waveform
+from the first and outputs the resulting waveform.
 
 This module provides two separated sets of inputs and outputs, and does not clip.
 This means that if you have two high voltages coming in, the result could go

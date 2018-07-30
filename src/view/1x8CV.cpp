@@ -19,7 +19,7 @@ M1x8CVWidget::M1x8CVWidget(M1x8CVModule *module) : ModuleWidget(module) {
   addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
   addChild(Widget::create<JLHHexScrew>(Vec(46, 366)));
 
-  addInput(Port::create<RCJackSmallLight>(Vec(17.23, 73), Port::INPUT, module,
+  addInput(Port::create<RCJackSmallLight>(Vec(17.73, 73), Port::INPUT, module,
                                           M1x8CVModule::TOP_INPUT));
 
   addInput(Port::create<RCJackSmallLight>(Vec(0.48, 158), Port::INPUT, module,

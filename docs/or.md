@@ -1,8 +1,8 @@
-# Or Module
+# Or
 
 ![Or Module](images/or.png)
 
-The or module accepts two waveform inputs, executes an OR against both
+The **or** module accepts two waveform inputs, executes an [OR](https://en.wikipedia.org/wiki/Bitwise_operation#OR) against both
 waveforms, and outputs the resulting waveform.
 
 In order to accomplish this, the voltage is multiplied by 10,000, and converted

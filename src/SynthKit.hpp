@@ -21,4 +21,3 @@ extern Model *modelPrimeClockDivider;
 extern Model *modelFibonacciClockDivider;
 extern Model *modelSeq4;
 extern Model *modelSeq8;
-extern Model *modelDevKit;

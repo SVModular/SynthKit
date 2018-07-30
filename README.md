@@ -100,3 +100,7 @@ $ git submodule init
 $ git submodule update
 $ make
 ```
+
+Special thanks to @jonheal (Jon Heal), who designed and provided the look and
+feel of SynthKit.  His hard work is what made this a cohesive set of useful
+modules.

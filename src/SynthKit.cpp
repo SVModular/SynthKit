@@ -9,7 +9,7 @@ void init(rack::Plugin *p) {
   p->slug = TOSTRING(SLUG);
   p->version = TOSTRING(VERSION);
   p->website = "https://github.com/JerrySievert/SynthKit";
-  p->manual = "https://github.com/JerrySievert/SynthKit/blob/master/README.md";
+  p->manual = "https://github.com/JerrySievert/SynthKit/blob/master/docs/README.md";
 
   // For each module, specify the ModuleWidget subclass, manufacturer slug (for
   // saving in patches), manufacturer human-readable name, module slug, and
@@ -27,7 +27,6 @@ void init(rack::Plugin *p) {
   p->addModel(modelFibonacciClockDivider);
   p->addModel(modelSeq4);
   p->addModel(modelSeq8);
-  p->addModel(modelDevKit);
 
   // Any other plugin initialization may go here.
   // As an alternative, consider lazy-loading assets and lookup tables when your
