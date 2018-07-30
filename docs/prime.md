@@ -2,7 +2,7 @@
 
 ![Prime Clock Divider](images/prime.png)
 
-A ** Prime Clock Divider** accepts a CV input as a _gate_, and creates a number of
+A **Prime Clock Divider** accepts a CV input as a _gate_, and creates a number of
 _beats_ based on input triggers.  Each time a _beat_ occurs (when a CV value
 goes from under `1.7` to `1.7` or above), a value of `1.7` is output for one
 half of that _beat_.
