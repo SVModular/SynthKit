@@ -1,92 +1,13 @@
 
 # SynthKit
 
+![ADD](docs/images/add.png) ![SUBTRACT](docs/images/subtract.png) ![AND](docs/images/and.png) ![OR](docs/images/or.png) ![1x8](docs/images/1x8.png) ![1x8 CV](docs/images/1x8cv.png) ![CLOCK DIVIDER](docs/images/clock_divider.png) ![ROTATING CLOCK DIVIDER](docs/images/rotating.png) ![SHIFTING CLOCK DIVIDER](docs/images/shifting.png) ![PRIME CLOCK DIVIDER](docs/images/prime.png) ![FIBONACCI CLOCK DIVIDER](docs/images/fibonacci.png) ![SEQ-4](docs/images/seq4.png) ![SEQ-8](docs/images/seq8.png)
+
 A series of modules for VCVRack.  This are meant to be basic building blocks
 of synthesis, that will help you create bigger and more complicated
 synthesizers.
 
-### Current Status
-
-These modules are currently under development, but are currently in a working
-state.
-
-#### Addition
-
-Takes two inputs, adds them, clips them, and outputs the result.
-
-#### Subtraction
-
-Takes two inputs, subtracts the second one from the first, clips them, and
-outputs the result.
-
-#### And
-
-Takes two inputs, calculates a logical AND, and outputs the result.
-
-#### Or
-
-Takes two inputs, calculates a logical OR, and outputs the result.
-
-#### 1x8 Splitter
-
-Takes an input, outputs the same input across 8 outputs.
-
-#### 1x8 Splitter, CV Controlled
-
-Takes an input, outputs the same input across any of the outputs, if the CV
-trigger is active.  LED will light up for every active output.
-
-#### Clock Divider
-
-Takes a clock input, outputs a 1/2 width pulse across 8 pulses:
-
-```
-    1  2  3  4  5  6  7  8
-/1  x  x  x  x  x  x  x  x
-/2     x     x     x     x
-/3        x        x      
-/4           x           x
-/5              x         
-/6                 x      
-/7                    x   
-/8                       x
-```
-
-#### Rotating Clock Divider
-
-Works the same as the Clock Divider, except that when it is triggered, the outputs
-rotate.  For each trigger, the output sequences increment one: output 1 changes to
-output 2, etc.
-
-#### Prime Clock Divider
-
-Works the same as the Clock Divider, but only triggers on prime numbered pulses:
-
-```
-     1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19
-/2      x
-/3         x
-/5                x
-/7                     x
-/11                                 x
-/13                                       x
-/17                                                   x
-/19                                                         x
-```
-
-#### Fibonacci Clock Divider
-
-Works the same as the Prime Clock Divider, but only triggers on fibonacci numbered pulses.
-
-#### Simple 4-Step Sequencer
-
-Takes a clock input, and outputs a simple 4-step sequence across one octave,
-selectable.
-
-#### DevKit
-
-Development kit (still under development).  Currently displays minimum and
-maximum values, CV trigger status (1.7v), number of triggers.
+Full documentation is [available](docs/README.md).
 
 ## Building
 
