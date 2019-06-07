@@ -41,7 +41,7 @@ struct M1x8CVModule : Module {
   };
 
   M1x8CVModule();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 
   SynthDevKit::CV *cv[8];
 };

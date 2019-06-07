@@ -17,7 +17,7 @@ struct Seq4Module : Module {
   enum LightIds { FIRST_LED, SECOND_LED, THIRD_LED, FOURTH_LED, NUM_LIGHTS };
 
   Seq4Module();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 
   SynthDevKit::CV *cv;
 

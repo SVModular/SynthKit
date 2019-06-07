@@ -1,15 +1,14 @@
 #include "And.hpp"
 
-AndModule::AndModule()
-    : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
-  // nothing to do here
+AndModule::AndModule() {
+  config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 }
 
-void AndModule::step() {
-  float top1 = inputs[TOP1_INPUT].value;
-  float top2 = inputs[TOP2_INPUT].value;
-  float bottom1 = inputs[BOTTOM1_INPUT].value;
-  float bottom2 = inputs[BOTTOM2_INPUT].value;
+void AndModule::process(const ProcessArgs &args) {
+  float top1 = inputs[TOP1_INPUT].getVoltage();
+  float top2 = inputs[TOP2_INPUT].getVoltage();
+  float bottom1 = inputs[BOTTOM1_INPUT].getVoltage();
+  float bottom2 = inputs[BOTTOM2_INPUT].getVoltage();
 
   double val1 =
       (double)((long long)(top1 * 10000) & (long long)(top2 * 10000)) / 10000;
@@ -17,6 +16,6 @@ void AndModule::step() {
       (double)((long long)(bottom1 * 10000) & (long long)(bottom2 * 10000)) /
       10000;
 
-  outputs[TOP_OUTPUT].value = (float)val1;
-  outputs[BOTTOM_OUTPUT].value = (float)val2;
+  outputs[TOP_OUTPUT].setVoltage((float)val1);
+  outputs[BOTTOM_OUTPUT].setVoltage((float)val2);
 }

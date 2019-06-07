@@ -33,7 +33,7 @@ struct RotatingClockDivider2Module : Module {
   };
 
   RotatingClockDivider2Module();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 
   SynthDevKit::Clock *clock;
   SynthDevKit::CV *cv;

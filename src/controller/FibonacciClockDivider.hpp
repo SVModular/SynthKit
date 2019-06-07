@@ -31,7 +31,7 @@ struct FibonacciClockDividerModule : Module {
   };
 
   FibonacciClockDividerModule();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 
   SynthDevKit::FibonacciClock *clock;
   SynthDevKit::CV *cv;

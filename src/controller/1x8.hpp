@@ -19,5 +19,5 @@ struct M1x8Module : Module {
   enum LightIds { NUM_LIGHTS };
 
   M1x8Module();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 };

@@ -6,7 +6,7 @@
 
 using namespace rack;
 
-extern Plugin *plugin;
+extern Plugin *pluginInstance;
 
 extern Model *modelAddition;
 extern Model *modelSubtraction;

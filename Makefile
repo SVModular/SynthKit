@@ -1,6 +1,3 @@
-SLUG = SynthKit
-VERSION = 0.6.2
-
 # FLAGS will be passed to both the C and C++ compiler
 FLAGS +=
 CFLAGS +=

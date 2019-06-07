@@ -31,7 +31,7 @@ struct PrimeClockDividerModule : Module {
   };
 
   PrimeClockDividerModule();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 
   SynthDevKit::PrimeClock *clock;
   SynthDevKit::CV *cv;

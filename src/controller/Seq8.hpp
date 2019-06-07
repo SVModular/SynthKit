@@ -38,7 +38,7 @@ struct Seq8Module : Module {
   };
 
   Seq8Module();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 
   SynthDevKit::CV *cv;
 

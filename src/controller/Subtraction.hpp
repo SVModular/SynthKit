@@ -13,5 +13,5 @@ struct SubtractionModule : Module {
   enum LightIds { NUM_LIGHTS };
 
   SubtractionModule();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 };
