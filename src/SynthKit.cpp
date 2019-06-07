@@ -1,7 +1,7 @@
 #include "SynthKit.hpp"
 
 // The plugin-wide instance of the Plugin class
-Plugin *pluginnstance;
+Plugin *pluginInstance;
 
 void init(rack::Plugin *p) {
   pluginInstance = p;
