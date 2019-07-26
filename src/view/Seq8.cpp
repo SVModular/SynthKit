@@ -18,8 +18,10 @@ Seq8Widget::Seq8Widget(Seq8Module *module) {
   addChild(createWidget<JLHHexScrew>(Vec(1, 366)));
   addChild(createWidget<JLHHexScrew>(Vec(61, 366)));
 
-  addInput(createInput<RCJackSmallLight>(Vec(25.23, 73), module,
+  addInput(createInput<RCJackSmallLight>(Vec(8.25, 73), module,
                                          Seq8Module::CLOCK_INPUT));
+  addInput(createInput<RCJackSmallLight>(Vec(41, 73), module,
+                                         Seq8Module::RESET_INPUT));
   addOutput(createOutput<RCJackSmallDark>(Vec(25.23, 305), module,
                                           Seq8Module::GATE_OUTPUT));
 

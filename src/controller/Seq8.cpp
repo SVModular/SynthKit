@@ -3,6 +3,7 @@
 Seq8Module::Seq8Module() {
   config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
   cv = new SynthDevKit::CV(1.7f);
+  reset = new SynthDevKit::CV(1.7f);
   currentStep = 0;
 
   configParam(Seq8Module::OCTAVE1_PARAM, 0.0, 8.0, 4.0);
@@ -24,6 +25,10 @@ Seq8Module::Seq8Module() {
 }
 
 void Seq8Module::process(const ProcessArgs &args) {
+  reset->update(inputs[RESET_INPUT].getVoltage());
+  if (reset->newTrigger()) {
+    currentStep = 0;
+  }
   float in = inputs[CLOCK_INPUT].getVoltage();
   cv->update(in);
 

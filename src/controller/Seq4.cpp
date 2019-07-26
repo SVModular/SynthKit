@@ -3,6 +3,7 @@
 Seq4Module::Seq4Module() {
   config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
   cv = new SynthDevKit::CV(1.7f);
+  reset = new SynthDevKit::CV(1.7f);
   currentStep = 0;
 
   configParam(Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0);
@@ -13,6 +14,11 @@ Seq4Module::Seq4Module() {
 }
 
 void Seq4Module::process(const ProcessArgs &args) {
+  reset->update(inputs[RESET_INPUT].getVoltage());
+  if (reset->newTrigger()) {
+    currentStep = 0;
+  }
+
   float in = inputs[CLOCK_INPUT].getVoltage();
   cv->update(in);
 

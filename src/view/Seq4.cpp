@@ -16,11 +16,14 @@ Seq4Widget::Seq4Widget(Seq4Module *module) {
   addChild(createWidget<JLHHexScrew>(Vec(1, 1)));
   addChild(createWidget<JLHHexScrew>(Vec(31, 366)));
 
-  addInput(createInput<RCJackSmallLight>(Vec(10.23, 73), module,
+  addInput(createInput<RCJackSmallLight>(Vec(10.23, 56), module,
                                           Seq4Module::CLOCK_INPUT));
 
+  addInput(createInput<RCJackSmallLight>(Vec(10.23, 96), module,
+                                          Seq4Module::RESET_INPUT));
+
   addParam(createParam<Knob30Snap>(
-      Vec(7.5, 123), module, Seq4Module::OCTAVE_PARAM));
+      Vec(7.5, 136.5), module, Seq4Module::OCTAVE_PARAM));
   addParam(createParam<Knob19Snap>(
       Vec(13, 185), module, Seq4Module::SEQ1_PARAM));
   addParam(createParam<Knob19Snap>(

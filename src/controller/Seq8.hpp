@@ -23,7 +23,7 @@ struct Seq8Module : Module {
     SEQ8_PARAM,
     NUM_PARAMS
   };
-  enum InputIds { CLOCK_INPUT, NUM_INPUTS };
+  enum InputIds { CLOCK_INPUT, RESET_INPUT, NUM_INPUTS };
   enum OutputIds { GATE_OUTPUT, NUM_OUTPUTS };
   enum LightIds {
     FIRST_LED,
@@ -41,6 +41,7 @@ struct Seq8Module : Module {
   void process(const ProcessArgs &args) override;
 
   SynthDevKit::CV *cv;
+  SynthDevKit::CV *reset;
 
   float notes[12] = {0,   0.08, 0.17, 0.25, 0.33, 0.42,
                      0.5, 0.58, 0.67, 0.75, 0.83, 0.92};
