@@ -2,6 +2,14 @@
 
 AdditionModule::AdditionModule() {
   config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+
+  configInput(TOP1_INPUT, "A1");
+  configInput(TOP2_INPUT, "A2");
+  configInput(BOTTOM1_INPUT, "B1");
+  configInput(BOTTOM2_INPUT, "B2");
+
+  configOutput(TOP_OUTPUT, "Sum A");
+  configOutput(BOTTOM_OUTPUT, "Sum B");
 }
 
 void AdditionModule::process(const ProcessArgs &args) {

@@ -2,6 +2,14 @@
 
 AndModule::AndModule() {
   config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+
+  configInput(TOP1_INPUT, "A1");
+  configInput(TOP2_INPUT, "A2");
+  configInput(BOTTOM1_INPUT, "B1");
+  configInput(BOTTOM2_INPUT, "B2");
+
+  configOutput(TOP_OUTPUT, "And A");
+  configOutput(BOTTOM_OUTPUT, "And B");
 }
 
 void AndModule::process(const ProcessArgs &args) {
