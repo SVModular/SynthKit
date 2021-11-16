@@ -8,7 +8,7 @@ struct Seq8Widget : ModuleWidget {
 };
 
 Seq8Widget::Seq8Widget(Seq8Module *module) {
-		setModule(module);
+  setModule(module);
   box.size = Vec(5 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
   setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Seq8.svg")));

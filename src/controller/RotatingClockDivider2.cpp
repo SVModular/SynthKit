@@ -2,6 +2,14 @@
 
 RotatingClockDivider2Module::RotatingClockDivider2Module() {
   config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+
+  configInput(TOP_INPUT, "Clock");
+  configInput(ROTATE_INPUT, "Shift");
+  configInput(RESET_INPUT, "Reset");
+  for (int i = 0; i < NUM_OUTPUTS; i++) {
+    configOutput(DIV_OUTPUT + i, string::f("Div %d", i + 1));
+  }
+
   clock = new SynthDevKit::Clock(8, 1.7f);
   cv = new SynthDevKit::CV(1.7f);
   reset = new SynthDevKit::CV(1.7f);

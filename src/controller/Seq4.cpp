@@ -6,11 +6,14 @@ Seq4Module::Seq4Module() {
   reset = new SynthDevKit::CV(1.7f);
   currentStep = 0;
 
-  configParam(Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0);
-  configParam(Seq4Module::SEQ1_PARAM, 0.0, 11.0, 5.0);
-  configParam(Seq4Module::SEQ2_PARAM, 0.0, 11.0, 5.0);
-  configParam(Seq4Module::SEQ3_PARAM, 0.0, 11.0, 5.0);
-  configParam(Seq4Module::SEQ4_PARAM, 0.0, 11.0, 5.0);
+  configInput(CLOCK_INPUT, "Clock");
+  configInput(RESET_INPUT, "Reset");
+  configOutput(GATE_OUTPUT, "Note");
+  configParam(Seq4Module::OCTAVE_PARAM, 1.0, 8.0, 4.0, "Octave");
+  configParam(Seq4Module::SEQ1_PARAM, 0.0, 11.0, 5.0, "Step 1 Pitch");
+  configParam(Seq4Module::SEQ2_PARAM, 0.0, 11.0, 5.0, "Step 2 Pitch");
+  configParam(Seq4Module::SEQ3_PARAM, 0.0, 11.0, 5.0, "Step 3 Pitch");
+  configParam(Seq4Module::SEQ4_PARAM, 0.0, 11.0, 5.0, "Step 4 Pitch");
 }
 
 void Seq4Module::process(const ProcessArgs &args) {

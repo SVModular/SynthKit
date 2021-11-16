@@ -30,6 +30,24 @@
       ]
     },
     {
+      "slug": "And",
+      "name": "And",
+      "description": "Logical Bitwise And",
+      "tags": [
+        "Utility",
+        "Logic"
+      ]
+    },
+    {
+      "slug": "Or",
+      "name": "Or",
+      "description": "Logical Bitwise Or",
+      "tags": [
+        "Utility",
+        "Logic"
+      ]
+    },
+    {
       "slug": "Addition",
       "name": "Addition",
       "description": "Simple value addition",
@@ -51,24 +69,6 @@
       "description": "Clock Divider",
       "tags": [
         "Clock modulator",
-        "Logic"
-      ]
-    },
-    {
-      "slug": "And",
-      "name": "And",
-      "description": "Logical Bitwise And",
-      "tags": [
-        "Utility",
-        "Logic"
-      ]
-    },
-    {
-      "slug": "Or",
-      "name": "Or",
-      "description": "Logical Bitwise Or",
-      "tags": [
-        "Utility",
         "Logic"
       ]
     },
