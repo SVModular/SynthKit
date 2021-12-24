@@ -6,35 +6,30 @@ struct AdditionWidget : ModuleWidget {
   AdditionWidget(AdditionModule *module);
 };
 
-AdditionWidget::AdditionWidget(AdditionModule *module) : ModuleWidget(module) {
+AdditionWidget::AdditionWidget(AdditionModule *module) {
+		setModule(module);
   box.size = Vec(3 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
-  {
-    SVGPanel *panel = new SVGPanel();
-    panel->box.size = box.size;
-    panel->setBackground(SVG::load(assetPlugin(plugin, "res/Addition.svg")));
-    addChild(panel);
-  }
+  setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Addition.svg")));
 
-  addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
-  addChild(Widget::create<JLHHexScrew>(Vec(31, 366)));
+  addChild(createWidget<JLHHexScrew>(Vec(1, 1)));
+  addChild(createWidget<JLHHexScrew>(Vec(31, 366)));
 
-  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
+  addInput(createInput<RCJackSmallLight>(Vec(10.23, 73), module,
                                           AdditionModule::TOP1_INPUT));
-  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 115), Port::INPUT, module,
+  addInput(createInput<RCJackSmallLight>(Vec(10.23, 115), module,
                                          AdditionModule::TOP2_INPUT));
 
-  addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 158), Port::OUTPUT, module,
+  addOutput(createOutput<RCJackSmallDark>(Vec(10.23, 158), module,
                                           AdditionModule::TOP_OUTPUT));
 
-  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 220), Port::INPUT, module,
+  addInput(createInput<RCJackSmallLight>(Vec(10.23, 220), module,
                                           AdditionModule::BOTTOM1_INPUT));
-  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 262), Port::INPUT, module,
+  addInput(createInput<RCJackSmallLight>(Vec(10.23, 262), module,
                                          AdditionModule::BOTTOM2_INPUT));
 
-  addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
+  addOutput(createOutput<RCJackSmallDark>(Vec(10.23, 305), module,
                                           AdditionModule::BOTTOM_OUTPUT));
 }
 
-Model *modelAddition = Model::create<AdditionModule, AdditionWidget>(
-    "SynthKit", "Addition", "Addition", MIXER_TAG);
+Model *modelAddition = createModel<AdditionModule, AdditionWidget>("Addition");

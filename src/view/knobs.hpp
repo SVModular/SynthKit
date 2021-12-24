@@ -5,17 +5,17 @@
 
 using namespace rack;
 
-extern Plugin *plugin;
+extern Plugin *pluginInstance;
 
 struct Knob19 : RoundKnob {
   Knob19() {
-    setSVG(SVG::load(assetPlugin(plugin, "res/Knob19.svg")));
+    setSVG(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Knob19.svg")));
   }
 };
 
 struct Knob30 : RoundKnob {
   Knob30() {
-    setSVG(SVG::load(assetPlugin(plugin, "res/Knob30.svg")));
+    setSVG(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Knob30.svg")));
   }
 };
 

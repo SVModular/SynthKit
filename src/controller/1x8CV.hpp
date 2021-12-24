@@ -7,41 +7,20 @@ struct M1x8CVModule : Module {
   enum ParamIds { NUM_PARAMS };
   enum InputIds {
     TOP_INPUT,
-    FIRST_CV,
-    SECOND_CV,
-    THIRD_CV,
-    FOURTH_CV,
-    FIFTH_CV,
-    SIXTH_CV,
-    SEVENTH_CV,
-    EIGHTH_CV,
+    ENUMS(CV_INPUT, 8),
     NUM_INPUTS
   };
   enum OutputIds {
-    FIRST_OUTPUT,
-    SECOND_OUTPUT,
-    THIRD_OUTPUT,
-    FOURTH_OUTPUT,
-    FIFTH_OUTPUT,
-    SIXTH_OUTPUT,
-    SEVENTH_OUTPUT,
-    EIGHTH_OUTPUT,
+    ENUMS(CH_OUTPUT, 8),
     NUM_OUTPUTS
   };
   enum LightIds {
-    FIRST_LED,
-    SECOND_LED,
-    THIRD_LED,
-    FOURTH_LED,
-    FIFTH_LED,
-    SIXTH_LED,
-    SEVENTH_LED,
-    EIGHTH_LED,
+    ENUMS(CH_LED, 8),
     NUM_LIGHTS
   };
 
   M1x8CVModule();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 
   SynthDevKit::CV *cv[8];
 };

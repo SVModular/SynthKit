@@ -1,15 +1,23 @@
 #include "RotatingClockDivider.hpp"
 
-RotatingClockDividerModule::RotatingClockDividerModule()
-    : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
+RotatingClockDividerModule::RotatingClockDividerModule() {
+  config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+
+  configInput(TOP_INPUT, "Clock");
+  configInput(ROTATE_INPUT, "Rotate");
+  configInput(RESET_INPUT, "Reset");
+  for (int i = 0; i < NUM_OUTPUTS; i++) {
+    configOutput(DIV_OUTPUT + i, string::f("Div %d", i + 1));
+  }
+
   clock = new SynthDevKit::Clock(8, 1.7f);
   cv = new SynthDevKit::CV(1.7f);
   reset = new SynthDevKit::CV(1.7f);
   count = 0;
 }
 
-void RotatingClockDividerModule::step() {
-  float reset_in = inputs[RESET_INPUT].value;
+void RotatingClockDividerModule::process(const ProcessArgs &args) {
+  float reset_in = inputs[RESET_INPUT].getVoltage();
 
   reset->update(reset_in);
 
@@ -17,8 +25,8 @@ void RotatingClockDividerModule::step() {
     clock->reset();
   }
 
-  float in = inputs[TOP_INPUT].value;
-  float trigger = inputs[ROTATE_INPUT].value;
+  float in = inputs[TOP_INPUT].getVoltage();
+  float trigger = inputs[ROTATE_INPUT].getVoltage();
 
   bool *states = clock->update(in);
   cv->update(trigger);
@@ -35,10 +43,10 @@ void RotatingClockDividerModule::step() {
     }
 
     if (states[i] == true) {
-      outputs[j].value = in;
+      outputs[j].setVoltage(in);
       lights[j].value = 1.0f;
     } else {
-      outputs[j].value = 0;
+      outputs[j].setVoltage(0);
       lights[j].value = 0;
     }
   }

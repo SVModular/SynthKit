@@ -15,5 +15,5 @@ struct AndModule : Module {
   enum LightIds { NUM_LIGHTS };
 
   AndModule();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 };

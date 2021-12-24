@@ -13,5 +13,5 @@ struct OrModule : Module {
   enum LightIds { NUM_LIGHTS };
 
   OrModule();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 };
