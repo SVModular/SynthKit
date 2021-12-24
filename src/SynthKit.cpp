@@ -1,16 +1,10 @@
 #include "SynthKit.hpp"
 
 // The plugin-wide instance of the Plugin class
-Plugin *plugin;
+Plugin *pluginInstance;
 
 void init(rack::Plugin *p) {
-  plugin = p;
-  // This is the unique identifier for your plugin
-  p->slug = TOSTRING(SLUG);
-  p->version = TOSTRING(VERSION);
-  p->website = "https://github.com/JerrySievert/SynthKit";
-  p->manual = "https://github.com/JerrySievert/SynthKit/blob/master/docs/README.md";
-
+  pluginInstance = p;
   // For each module, specify the ModuleWidget subclass, manufacturer slug (for
   // saving in patches), manufacturer human-readable name, module slug, and
   // module name

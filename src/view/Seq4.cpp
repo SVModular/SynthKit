@@ -7,45 +7,43 @@ struct Seq4Widget : ModuleWidget {
   Seq4Widget(Seq4Module *module);
 };
 
-Seq4Widget::Seq4Widget(Seq4Module *module) : ModuleWidget(module) {
+Seq4Widget::Seq4Widget(Seq4Module *module) {
+  setModule(module);
   box.size = Vec(3 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
-  {
-    SVGPanel *panel = new SVGPanel();
-    panel->box.size = box.size;
-    panel->setBackground(SVG::load(assetPlugin(plugin, "res/Seq4.svg")));
-    addChild(panel);
-  }
+  setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Seq4.svg")));
 
-  addChild(Widget::create<JLHHexScrew>(Vec(1, 1)));
-  addChild(Widget::create<JLHHexScrew>(Vec(31, 366)));
+  addChild(createWidget<JLHHexScrew>(Vec(1, 1)));
+  addChild(createWidget<JLHHexScrew>(Vec(31, 366)));
 
-  addInput(Port::create<RCJackSmallLight>(Vec(10.23, 73), Port::INPUT, module,
+  addInput(createInput<RCJackSmallLight>(Vec(10.23, 56), module,
                                           Seq4Module::CLOCK_INPUT));
 
-  addParam(ParamWidget::create<Knob30Snap>(
-      Vec(7.5, 123), module, Seq4Module::OCTAVE_PARAM, 0.0, 8.0, 4.0));
-  addParam(ParamWidget::create<Knob19Snap>(
-      Vec(13, 185), module, Seq4Module::SEQ1_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<Knob19Snap>(
-      Vec(13, 211), module, Seq4Module::SEQ2_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<Knob19Snap>(
-      Vec(13, 237), module, Seq4Module::SEQ3_PARAM, 0.0, 11.0, 5.0));
-  addParam(ParamWidget::create<Knob19Snap>(
-      Vec(13, 263), module, Seq4Module::SEQ4_PARAM, 0.0, 11.0, 5.0));
+  addInput(createInput<RCJackSmallLight>(Vec(10.23, 96), module,
+                                          Seq4Module::RESET_INPUT));
 
-  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+  addParam(createParam<Knob30Snap>(
+      Vec(7.5, 136.5), module, Seq4Module::OCTAVE_PARAM));
+  addParam(createParam<Knob19Snap>(
+      Vec(13, 185), module, Seq4Module::SEQ1_PARAM));
+  addParam(createParam<Knob19Snap>(
+      Vec(13, 211), module, Seq4Module::SEQ2_PARAM));
+  addParam(createParam<Knob19Snap>(
+      Vec(13, 237), module, Seq4Module::SEQ3_PARAM));
+  addParam(createParam<Knob19Snap>(
+      Vec(13, 263), module, Seq4Module::SEQ4_PARAM));
+
+  addChild(createLight<SmallLight<GreenLight>>(
       Vec(36.5, 191.28), module, Seq4Module::FIRST_LED));
-  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+  addChild(createLight<SmallLight<GreenLight>>(
       Vec(36.5, 217.28), module, Seq4Module::SECOND_LED));
-  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+  addChild(createLight<SmallLight<GreenLight>>(
       Vec(36.5, 243.28), module, Seq4Module::THIRD_LED));
-  addChild(ModuleLightWidget::create<SmallLight<GreenLight>>(
+  addChild(createLight<SmallLight<GreenLight>>(
       Vec(36.5, 269.28), module, Seq4Module::FOURTH_LED));
 
-  addOutput(Port::create<RCJackSmallDark>(Vec(10.23, 305), Port::OUTPUT, module,
+  addOutput(createOutput<RCJackSmallDark>(Vec(10.23, 305), module,
                                           Seq4Module::GATE_OUTPUT));
 }
 
-Model *modelSeq4 = Model::create<Seq4Module, Seq4Widget>(
-    "SynthKit", "4-Step Sequencer", "4-Step Sequencer", SEQUENCER_TAG);
+Model *modelSeq4 = createModel<Seq4Module, Seq4Widget>("4-StepSequencer");

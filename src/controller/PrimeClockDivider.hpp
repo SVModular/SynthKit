@@ -8,14 +8,7 @@ struct PrimeClockDividerModule : Module {
   enum ParamIds { NUM_PARAMS };
   enum InputIds { TOP_INPUT, RESET_INPUT, NUM_INPUTS };
   enum OutputIds {
-    FIRST_OUTPUT,
-    SECOND_OUTPUT,
-    THIRD_OUTPUT,
-    FOURTH_OUTPUT,
-    FIFTH_OUTPUT,
-    SIXTH_OUTPUT,
-    SEVENTH_OUTPUT,
-    EIGHTH_OUTPUT,
+    ENUMS(DIV_OUTPUT, 8),
     NUM_OUTPUTS
   };
   enum LightIds {
@@ -31,7 +24,7 @@ struct PrimeClockDividerModule : Module {
   };
 
   PrimeClockDividerModule();
-  void step() override;
+  void process(const ProcessArgs &args) override;
 
   SynthDevKit::PrimeClock *clock;
   SynthDevKit::CV *cv;
